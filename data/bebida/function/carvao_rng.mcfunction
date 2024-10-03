@@ -1,1 +1,0 @@
-execute if predicate bebida:carvao_rng run function bebida:carvao_actions

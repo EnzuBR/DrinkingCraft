@@ -1,1 +1,0 @@
-execute if predicate bebida:ferro_rng run function bebida:ferro_actions
