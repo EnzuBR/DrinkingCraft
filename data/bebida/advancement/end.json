@@ -1,0 +1,20 @@
+{
+    "criteria": {
+      "entered_end": {
+        "trigger": "minecraft:changed_dimension",
+        "conditions": {
+          "to": "minecraft:the_end"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "entered_end"
+      ]
+    ],
+    "rewards": {
+      "function": "bebida:end"
+    },
+    "sends_telemetry_event": false
+  }
+  

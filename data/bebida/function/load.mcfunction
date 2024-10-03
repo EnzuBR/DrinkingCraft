@@ -18,3 +18,11 @@ scoreboard players set @a nether 1
 # Ender Dragon
 scoreboard objectives add ender_dragon dummy
 scoreboard players set @a ender_dragon 1
+
+# End
+scoreboard objectives add end dummy
+scoreboard players set @a end 1
+
+# Stronghold
+scoreboard objectives add stronghold dummy
+scoreboard players set @a stronghold 1

@@ -21,16 +21,20 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 - Shot quando consegue The End?
 
 ### Todos bebem:
-- Todos bebem quando a primeira pessoa encontra a Stronghold
-
 - Todos bebem quando a primeira pessoa entra no Nether
-	> Feito
-
-- Todos dão um Shot quando o Ender Dragon morre pela primeira vez (Free the End)
 	> Feito
 
 - Todos bebem quando alguém quebra um diamante (Cooldown de 45seg) (Menos quem quebrou)
 	> Quase pronto, Cooldown bugado
 
 - Todos bebem quando a primeira pessoa consegue um Full Dima (Menos quem conseguiu)
+	> Feito
+
+- Todos bebem quando a primeira pessoa encontra a Stronghold
+	> Feito
+
+- Todos dão um Shot quando a primeira pessoa entra no End
+	> Feito
+
+- Todos dão um Shot quando o Ender Dragon morre pela primeira vez (Free the End)
 	> Feito
