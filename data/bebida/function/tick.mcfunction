@@ -1,5 +1,5 @@
-# Reduz o cooldown global
-scoreboard players remove @a[scores={cooldown=1..}] cooldown 1
-
-# Roda todas as funcoes a cada tick
+# Roda funcoes a cada tick
 function bebida:diamante
+function bebida:carvao
+function bebida:ferro
+function bebida:obsidian

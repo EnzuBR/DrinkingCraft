@@ -7,11 +7,14 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 - Chance de 40% de todos beberem quando alguém quebra um diamante (Menos quem quebrou)
 	> Feito
 
-- Chance de 5% de beber ao craftar algo
+- Chance de 5% de beber quando quebra obsidian
+	> Feito
 
 - Chance de 2% de beber quando quebra ferro
+	> Feito
 
 - Chance de 1% de beber quando quebra carvão
+	> Feito
 
 - Acabar a bebida quando morre
 
