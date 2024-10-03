@@ -1,5 +1,5 @@
 # Bebadocraft
-Um Datapack que transforma Minecraft em um Drinking Game. Projeto inspirado no Datapack "Drunkcraft", que não está mais disponível e era em inglês, com o proposito de trazer uma versão atualizada, funcional e em português.
+Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1.21.1, com ```"pack_format": 48```. Projeto inspirado no Datapack "Drunkcraft", que não está mais disponível e era em inglês, com o proposito de trazer uma versão atualizada, funcional e em português.
 
 ## Features
 ### Beber:
