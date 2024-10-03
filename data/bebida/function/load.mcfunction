@@ -10,3 +10,7 @@ scoreboard objectives add diamond_deep minecraft.mined:minecraft.deepslate_diamo
 # Full Dima
 scoreboard objectives add full_dima dummy
 scoreboard players set @a full_dima 1
+
+# Nether
+scoreboard objectives add nether dummy
+scoreboard players set @a nether 1

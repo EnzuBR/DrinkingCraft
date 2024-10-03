@@ -1,0 +1,1 @@
+execute at @a[scores={nether=1}] run function bebida:nether_actions
