@@ -20,6 +20,7 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 	> Feito
 
 - Beber quando fica 10min sem morrer
+	> Feito
 
 - Shot para o primeiro jogador a abrir o inventario
 

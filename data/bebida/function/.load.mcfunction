@@ -38,3 +38,6 @@ scoreboard objectives add carvao_deep minecraft.mined:minecraft.deepslate_coal_o
 
 # Morte
 scoreboard objectives add mortes deathCount
+
+# Sem morrer
+scoreboard objectives add sem_morrer minecraft.custom:minecraft.time_since_death
