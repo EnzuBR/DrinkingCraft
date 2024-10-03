@@ -1,9 +1,5 @@
 # Carrega os objetivos
 
-# Diamante
-scoreboard objectives add diamante minecraft.mined:minecraft.diamond_ore
-scoreboard objectives add diamante_deep minecraft.mined:minecraft.deepslate_diamond_ore
-
 # Full Dima
 scoreboard objectives add full_dima dummy
 scoreboard players set @a full_dima 1
@@ -23,6 +19,14 @@ scoreboard players set @a end 1
 # Stronghold
 scoreboard objectives add stronghold dummy
 scoreboard players set @a stronghold 1
+
+# Craft
+scoreboard objectives add crafting dummy
+scoreboard players set @a crafting 1
+
+# Diamante
+scoreboard objectives add diamante minecraft.mined:minecraft.diamond_ore
+scoreboard objectives add diamante_deep minecraft.mined:minecraft.deepslate_diamond_ore
 
 # Obsidian
 scoreboard objectives add obsidian minecraft.mined:minecraft.obsidian

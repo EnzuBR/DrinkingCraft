@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "crafting_table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:crafting_table"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "crafting_table"
+    ]
+  ],
+  "rewards": {
+    "function": "bebida:crafting"
+  },
+  "sends_telemetry_event": false
+}
