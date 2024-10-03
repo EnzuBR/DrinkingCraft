@@ -1,4 +1,1 @@
-execute at @a[scores={full_dima=1}] run function bebida:full_dima_actions
-
-# Trava a acao
-scoreboard players set @a full_dima 0
+execute unless score $global full_dima = $global full_dima run function bebida:full_dima_actions

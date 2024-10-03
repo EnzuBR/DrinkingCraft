@@ -6,7 +6,6 @@ scoreboard players set @a full_dima 1
 
 # Nether
 scoreboard objectives add nether dummy
-scoreboard players set @a nether 1
 
 # Ender Dragon
 scoreboard objectives add ender_dragon dummy
@@ -45,3 +44,6 @@ scoreboard objectives add mortes deathCount
 
 # Sem morrer
 scoreboard objectives add sem_morrer minecraft.custom:minecraft.time_since_death
+
+# Da a tag init
+tag @a[tag=!init] add init
