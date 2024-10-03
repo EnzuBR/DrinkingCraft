@@ -26,7 +26,8 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 - Todos bebem quando a primeira pessoa entra no Nether
 	> Feito
 
-- Todos dão um Shot quando o Ender Dragon morre pela primeira vez (The End)
+- Todos dão um Shot quando o Ender Dragon morre pela primeira vez (Free the End)
+	> Feito
 
 - Todos bebem quando alguém quebra um diamante (Cooldown de 45seg) (Menos quem quebrou)
 	> Quase pronto, Cooldown bugado

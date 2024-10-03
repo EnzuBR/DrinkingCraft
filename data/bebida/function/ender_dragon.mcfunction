@@ -1,0 +1,1 @@
+execute at @a[scores={ender_dragon=1}] run function bebida:ender_dragon_actions

@@ -14,3 +14,7 @@ scoreboard players set @a full_dima 1
 # Nether
 scoreboard objectives add nether dummy
 scoreboard players set @a nether 1
+
+# Ender Dragon
+scoreboard objectives add ender_dragon dummy
+scoreboard players set @a ender_dragon 1
