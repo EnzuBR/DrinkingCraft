@@ -22,6 +22,7 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 
 - Beber quando seu equipamento quebra
 
+
 - Shot para o primeiro jogador a fazer uma Crafting Table
 
 
