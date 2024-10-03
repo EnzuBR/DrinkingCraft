@@ -17,6 +17,7 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 	> Feito
 
 - Acabar a bebida quando morre
+	> Feito
 
 - Beber quando fica 10min sem morrer
 

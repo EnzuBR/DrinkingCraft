@@ -35,3 +35,6 @@ scoreboard objectives add ferro_deep minecraft.mined:minecraft.deepslate_iron_or
 # Carvao
 scoreboard objectives add carvao minecraft.mined:minecraft.coal_ore
 scoreboard objectives add carvao_deep minecraft.mined:minecraft.deepslate_coal_ore
+
+# Morte
+scoreboard objectives add mortes deathCount

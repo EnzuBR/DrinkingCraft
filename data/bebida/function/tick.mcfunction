@@ -3,3 +3,4 @@ function bebida:diamante
 function bebida:carvao
 function bebida:ferro
 function bebida:obsidian
+function bebida:morte
