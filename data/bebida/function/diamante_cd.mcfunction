@@ -1,1 +1,0 @@
-execute at @p[scores={cooldown=-1..2}] run function bebida:diamante_actions

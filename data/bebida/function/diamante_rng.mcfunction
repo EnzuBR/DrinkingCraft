@@ -1,0 +1,1 @@
+execute if predicate bebida:diamante_rng run function bebida:diamante_actions
