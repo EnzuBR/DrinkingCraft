@@ -13,14 +13,14 @@ Um Datapack que transforma Minecraft em um Drinking Game. Projeto inspirado no D
 
 - Acaba a bebida quando morre
 
-Shot:
+### Shot:
 - Shot para o primeiro jogador a abrir o inventario
 
 - Shot na primeira vez que entra no servidor
 
 - Shot quando consegue The End?
 
-Todos bebem:
+### Todos bebem:
 - Todos bebem quando a primeira pessoa encontra a Stronghold
 
 - Todos bebem quando a primeira pessoa entra no Nether
