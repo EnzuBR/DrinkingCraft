@@ -1,3 +1,5 @@
+title @a reset
+
 title @a subtitle ["",{"text":"Menos ","bold":false},{"selector":"@p"}]
 
 title @p subtitle ["",{"text":"Menos você","bold":false}]

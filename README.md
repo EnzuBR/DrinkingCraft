@@ -2,8 +2,6 @@
 Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1.21.1, com ```"pack_format": 48```. Projeto inspirado no Datapack "Drunkcraft", que não está mais disponível e era em inglês, com o proposito de trazer uma versão atualizada, funcional e em português.
 
 ## Condições
-- Beber quando seu equipamento quebra
-
 - Chance de 40% de todos beberem quando alguém quebra um diamante (Menos quem quebrou)
 	> Feito
 
@@ -21,6 +19,8 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 
 - Beber quando fica 10min sem morrer
 	> Feito
+
+- Beber quando seu equipamento quebra
 
 - Shot para o primeiro jogador a abrir o inventario
 
