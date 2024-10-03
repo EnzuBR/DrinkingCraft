@@ -2,26 +2,24 @@
 
 # Full Dima
 scoreboard objectives add full_dima dummy
-scoreboard players set @a full_dima 1
 
 # Nether
 scoreboard objectives add nether dummy
 
 # Ender Dragon
 scoreboard objectives add ender_dragon dummy
-scoreboard players set @a ender_dragon 1
 
 # End
 scoreboard objectives add end dummy
-scoreboard players set @a end 1
 
 # Stronghold
 scoreboard objectives add stronghold dummy
-scoreboard players set @a stronghold 1
 
 # Craft
 scoreboard objectives add crafting dummy
-scoreboard players set @a crafting 1
+
+# Cogu
+scoreboard objectives add cogu dummy
 
 # Diamante
 scoreboard objectives add diamante minecraft.mined:minecraft.diamond_ore

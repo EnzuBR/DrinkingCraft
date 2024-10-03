@@ -1,0 +1,29 @@
+{
+    "criteria": {
+      "minecraft:mushroom_fields": {
+        "trigger": "minecraft:location",
+        "conditions": {
+          "player": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "location": {
+                  "biomes": "minecraft:mushroom_fields"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "requirements": [
+      [
+        "minecraft:mushroom_fields"
+      ]
+    ],
+    "rewards": {
+      "function": "bebida:cogu"
+    },
+    "sends_telemetry_event": false
+  }  
