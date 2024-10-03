@@ -1,0 +1,28 @@
+{
+    "criteria": {
+      "diamond_boots": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "minecraft:diamond_helmet"
+            },
+            {
+              "items": "minecraft:diamond_chestplate"
+            },
+            {
+              "items": "minecraft:diamond_leggings"
+            },
+            {
+              "items": "minecraft:diamond_boots"
+            }
+          ]
+        }
+      }
+    },
+    "rewards": {
+      "function": "bebida:full_dima"
+    },
+    "sends_telemetry_event": false
+  }
+  
