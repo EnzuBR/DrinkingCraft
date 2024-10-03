@@ -6,6 +6,4 @@ function bebida:obsidian
 function bebida:morte
 function bebida:sem_morrer
 function bebida:first_join
-
-
-# Iguala as variaveis
+function bebida:quebrou
