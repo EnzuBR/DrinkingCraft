@@ -1,4 +1,4 @@
-title @a reset
+title @a times 5t 20t 5t
 
 title @a title ["",{"text":"Todos dão shot","color":"gold","bold":true}]
 

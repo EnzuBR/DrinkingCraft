@@ -1,4 +1,4 @@
-title @a reset
+title @a times 5t 20t 5t
 
 title @p title ["",{"text":"De shot","color":"gold","bold":true}]
 
