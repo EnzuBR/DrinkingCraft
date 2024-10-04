@@ -1,4 +1,6 @@
 # Roda funcoes a cada tick
+# Feito por EnzuBR
+
 function bebida:diamante
 function bebida:carvao
 function bebida:ferro

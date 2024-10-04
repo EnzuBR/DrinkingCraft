@@ -1,4 +1,5 @@
 # Carrega os objetivos
+# Feito por EnzuBR
 
 # Full Dima
 scoreboard objectives add full_dima dummy
