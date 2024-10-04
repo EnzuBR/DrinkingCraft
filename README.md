@@ -36,8 +36,6 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 
 ## To Do
 
-- Trocar BebadoCraft por DrinkingCraft no código
-
 - Adicionar som ao aviso
 
 - Deixar o aviso mais rápido
@@ -55,3 +53,5 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 - Todos dão Shot quando a primeira pessoa encontra um Ancient Debris (Menos quem encontrou)
 
 - Todos bebem quando alguem troca com um Villager pela primeira vez
+
+- Criar Uninstall
