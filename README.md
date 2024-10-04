@@ -31,3 +31,5 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 - Todos dão um Shot quando a primeira pessoa entra no End
 
 - Todos dão um Shot quando o Ender Dragon morre pela primeira vez (Free the End)
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I0149EW0)
