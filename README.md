@@ -10,6 +10,8 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 
 - Chance de 1% de beber quando quebra carvão
 
+- Chance de 5% de beber quando mata um mob passivo
+
 - Acabar a bebida quando morre
 
 - Beber quando fica 10min sem morrer
@@ -41,8 +43,6 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I0149EW0)
 
 ## To Do
-
-- 5% de chance de beber quando mata um mob passivo
 
 - 40% de chance de beber quando é atacado por um Creeper
 

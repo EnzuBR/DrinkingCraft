@@ -53,6 +53,42 @@ scoreboard objectives add sem_morrer minecraft.custom:minecraft.time_since_death
 # Da a tag init
 tag @a[tag=!init] add init
 
+# Animal passivo
+scoreboard objectives add allay minecraft.killed:minecraft.allay
+scoreboard objectives add axolote minecraft.killed:minecraft.axolotl
+scoreboard objectives add bacalhau minecraft.killed:minecraft.cod
+scoreboard objectives add baiacu minecraft.killed:minecraft.pufferfish
+scoreboard objectives add burro minecraft.killed:minecraft.donkey
+scoreboard objectives add cavalo minecraft.killed:minecraft.horse
+scoreboard objectives add cavalo_esqueleto minecraft.killed:minecraft.skeleton_horse
+scoreboard objectives add coelho minecraft.killed:minecraft.rabbit
+scoreboard objectives add mooshroom minecraft.killed:minecraft.mooshroom
+scoreboard objectives add mooshroom_marrom minecraft.killed:minecraft.mooshroom
+scoreboard objectives add galinha minecraft.killed:minecraft.chicken
+scoreboard objectives add gato minecraft.killed:minecraft.cat
+scoreboard objectives add girino minecraft.killed:minecraft.tadpole
+scoreboard objectives add golem_de_neve minecraft.killed:minecraft.snow_golem
+scoreboard objectives add jaguatirica minecraft.killed:minecraft.ocelot
+scoreboard objectives add lavagante minecraft.killed:minecraft.strider
+scoreboard objectives add lula minecraft.killed:minecraft.squid
+scoreboard objectives add lula_brilhante minecraft.killed:minecraft.glow_squid
+scoreboard objectives add mula minecraft.killed:minecraft.mule
+scoreboard objectives add morcego minecraft.killed:minecraft.bat
+scoreboard objectives add ovelha minecraft.killed:minecraft.sheep
+scoreboard objectives add papagaio minecraft.killed:minecraft.parrot
+scoreboard objectives add peixe_tropical minecraft.killed:minecraft.tropical_fish
+scoreboard objectives add porco minecraft.killed:minecraft.pig
+scoreboard objectives add raposa minecraft.killed:minecraft.fox
+scoreboard objectives add salmao minecraft.killed:minecraft.salmon
+scoreboard objectives add sapo minecraft.killed:minecraft.frog
+scoreboard objectives add tartaruga minecraft.killed:minecraft.turtle
+scoreboard objectives add vaca minecraft.killed:minecraft.cow
+scoreboard objectives add cabra minecraft.killed:minecraft.goat
+scoreboard objectives add golfinho minecraft.killed:minecraft.dolphin
+scoreboard objectives add lhama minecraft.killed:minecraft.llama
+scoreboard objectives add lobo minecraft.killed:minecraft.wolf
+scoreboard objectives add panda minecraft.killed:minecraft.panda
+
 # Equipamento quebrou
 # Picaretas
 scoreboard objectives add w_pick minecraft.broken:minecraft.wooden_pickaxe
