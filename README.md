@@ -36,6 +36,8 @@ Um Datapack que transforma Minecraft em um Drinking Game. Feito para a versão 1
 
 - Todos dão um Shot quando a primeira pessoa consegue um Full Netherite (Menos quem conseguiu)
 
+[![Mande sugestões!](https://cdn.modrinth.com/data/cached_images/f86bc23663dba709f5994d480d8bef84959fd10b.png)](https://forms.gle/ia7oY1hR5vUB4eg46)
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I0149EW0)
 
 ## To Do
