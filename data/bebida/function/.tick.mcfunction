@@ -9,3 +9,4 @@ function bebida:morte
 function bebida:sem_morrer
 function bebida:first_join
 function bebida:quebrou
+function bebida:passivos
