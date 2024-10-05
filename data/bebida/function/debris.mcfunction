@@ -1,0 +1,1 @@
+execute unless score $global debris = $global debris run function bebida:debris_actions

@@ -1,0 +1,28 @@
+{
+    "criteria": {
+      "netherite_armor": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "minecraft:netherite_helmet"
+            },
+            {
+              "items": "minecraft:netherite_chestplate"
+            },
+            {
+              "items": "minecraft:netherite_leggings"
+            },
+            {
+              "items": "minecraft:netherite_boots"
+            }
+          ]
+        }
+      }
+    },
+    "rewards": {
+      "function": "bebida:full_netherite"
+    },
+    "sends_telemetry_event": false
+  }
+  

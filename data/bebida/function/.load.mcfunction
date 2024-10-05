@@ -4,6 +4,12 @@
 # Full Dima
 scoreboard objectives add full_dima dummy
 
+# Full Netherite
+scoreboard objectives add full_netherite dummy
+
+# Debris
+scoreboard objectives add debris dummy
+
 # Nether
 scoreboard objectives add nether dummy
 
