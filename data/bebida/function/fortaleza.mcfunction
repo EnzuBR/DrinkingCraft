@@ -1,0 +1,1 @@
+execute unless score $global fortaleza = $global fortaleza run function bebida:fortaleza_actions

@@ -31,6 +31,9 @@ scoreboard objectives add cogu dummy
 # Return
 scoreboard objectives add return dummy
 
+# Fortaleza
+scoreboard objectives add fortaleza dummy
+
 # Diamante
 scoreboard objectives add diamante minecraft.mined:minecraft.diamond_ore
 scoreboard objectives add diamante_deep minecraft.mined:minecraft.deepslate_diamond_ore
