@@ -1,9 +1,5 @@
 title @a times 5t 20t 5t
 
-title @a subtitle ["",{"text":"Menos ","bold":false},{"selector":"@p"}]
-
-title @p subtitle ["",{"text":"Menos você","bold":false}]
-
 title @a title ["",{"text":"Todos bebem","color":"gold","bold":true}]
 
 playsound minecraft:entity.player.levelup player @a

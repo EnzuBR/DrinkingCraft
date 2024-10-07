@@ -1,0 +1,17 @@
+{
+    "criteria": {
+      "traded": {
+        "trigger": "minecraft:villager_trade"
+      }
+    },
+    "requirements": [
+      [
+        "traded"
+      ]
+    ],
+    "rewards": {
+      "function": "bebida:trade_actions"
+    },
+    "sends_telemetry_event": false
+  }
+  
