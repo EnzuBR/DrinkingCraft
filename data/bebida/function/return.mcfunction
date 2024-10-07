@@ -1,0 +1,1 @@
+execute unless score $global return = $global return run function bebida:return_actions
