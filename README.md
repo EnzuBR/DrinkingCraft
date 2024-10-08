@@ -1,9 +1,9 @@
 # DrinkingCraft
 A Datapack that turns Minecraft into a Drinking Game. Made for version 1.21.1, with ```"pack_format": 48```. Project inspired by the Datapack "Drunkcraft", which is no longer available, with the purpose of bringing an updated, functional and better version. Made by EnzuBR.
 
-![Example of how the message appears on screen](https://cdn.modrinth.com/data/cached_images/7684b7006b816873d0f73e328ab49da0b437e8f9_0.webp)
+![Example of how the message appears on screen](https://cdn.modrinth.com/data/cached_images/b196f8e4fc15134906590f1bddff9f377c42d804_0.webp)
 
-![Example of breaking diamond](https://cdn.modrinth.com/data/cached_images/78b106b706a28de664e906c0fd52d4700f4c1620.gif)
+![Example of breaking diamond](https://cdn.modrinth.com/data/cached_images/2a8f2bdba248ae4a32b4215f01fc6aec5bdf7fe3.gif)
 
 ## Conditions
 - 40% chance for everyone to drink when someone breaks a diamond (except the one who broke it)
@@ -47,7 +47,5 @@ A Datapack that turns Minecraft into a Drinking Game. Made for version 1.21.1, w
 - Everyone drinks when someone trades with a Villager for the first time
 
 - The first person to get Return to Sender chooses someone to take a Shot
-
-[![Send suggestions!](https://cdn.modrinth.com/data/cached_images/f86bc23663dba709f5994d480d8bef84959fd10b.png)](https://forms.gle/ia7oY1hR5vUB4eg46)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I0149EW0)
