@@ -1,11 +1,11 @@
 title @a times 5t 20t 5t
 
-title @a subtitle ["",{"text":"Menos ","bold":false},{"selector":"@p"}]
+title @a subtitle ["",{"text":"Except ","bold":false},{"selector":"@p"}]
 
-title @p subtitle ["",{"text":"Menos você","bold":false}]
+title @p subtitle ["",{"text":"Except you","bold":false}]
 
-title @a title ["",{"text":"Todos bebem","color":"gold","bold":true}]
+title @a title ["",{"text":"Everyone drinks","color":"gold","bold":true}]
 
 playsound minecraft:entity.player.levelup player @a
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"aqua","bold":false,"selector":"@p"},{"color":"aqua","bold":false,"text":" encontrou um belo diamante, todos devem dar um gole de suas bebidas, menos "},{"color":"aqua","bold":false,"selector":"@p"},{"color":"aqua","bold":false,"text":"!"}]
+tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"aqua","bold":false,"selector":"@p"},{"color":"aqua","bold":false,"text":" found a beautiful diamond, everyone must take a sip of their drinks, except "},{"color":"aqua","bold":false,"selector":"@p"},{"color":"aqua","bold":false,"text":"!"}]
