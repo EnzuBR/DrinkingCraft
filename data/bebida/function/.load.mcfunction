@@ -50,6 +50,12 @@ scoreboard objectives add ferro_deep minecraft.mined:minecraft.deepslate_iron_or
 scoreboard objectives add carvao minecraft.mined:minecraft.coal_ore
 scoreboard objectives add carvao_deep minecraft.mined:minecraft.deepslate_coal_ore
 
+# Ouro
+scoreboard objectives add ouro minecraft.mined:minecraft.gold_ore
+scoreboard objectives add ouro_deep minecraft.mined:minecraft.deepslate_gold_ore
+# Esmeralda
+scoreboard objectives add esmeralda minecraft.mined:minecraft.emerald_ore
+scoreboard objectives add esmeralda_deep minecraft.mined:minecraft.deepslate_emerald_ore
 # Morte
 scoreboard objectives add mortes deathCount
 
@@ -178,4 +184,3 @@ scoreboard objectives add shield minecraft.broken:minecraft.shield
 scoreboard objectives add bow minecraft.broken:minecraft.bow
 scoreboard objectives add crossbow minecraft.broken:minecraft.crossbow
 scoreboard objectives add trident minecraft.broken:minecraft.trident
-scoreboard objectives add elytra minecraft.broken:minecraft.elytra

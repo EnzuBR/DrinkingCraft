@@ -1,13 +1,11 @@
 title @a times 5t 20t 5t
 
-title @a subtitle ["",{"text":"Except ","bold":false},{"selector":"@p"}]
+title @p subtitle ["",{"text":"Choose someone","bold":false},{"selector":"@p"}]
 
-title @p subtitle ["",{"text":"Except you","bold":false}]
+title @p title ["",{"text":"To take a shot","color":"gold","bold":true}]
 
-title @a title ["",{"text":"Everyone takes a shot","color":"gold","bold":true}]
+playsound minecraft:entity.wither.ambient player @p
 
-playsound minecraft:entity.wither.ambient player @a
-
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_red","bold":false,"selector":"@p"},{"color":"dark_red","bold":false,"text":" found the first Ancient Debris, everyone must take a shot, except "},{"color":"dark_red","bold":false,"selector":"@p"},{"color":"dark_red","bold":false,"text":"!"}]
+tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_red","bold":false,"selector":"@p"},{"color":"dark_red","bold":false,"text":" found the first Ancient Debris and can now choose someone to take a shot"}]
 
 scoreboard players set $global debris 0
