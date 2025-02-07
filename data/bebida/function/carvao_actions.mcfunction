@@ -6,4 +6,4 @@ title @p title ["",{"text":"Choose someone","color":"gold","bold":true}]
 
 playsound minecraft:entity.experience_orb.pickup player @p
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"gray","bold":false,"selector":"@p"},{"color":"gray","bold":false,"text":" has mined a coal ore perfectly and can now choose someone to drink!"}]
+tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"gray","bold":false,"selector":"@p"},{"color":"gray","bold":false,"text":" has perfectly mined a coal ore and can now choose someone to drink!"}]
