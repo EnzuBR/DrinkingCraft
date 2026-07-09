@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "got_elytra": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:elytra"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "got_elytra"
+    ]
+  ],
+  "rewards": {
+    "function": "bebida:elytra"
+  },
+  "sends_telemetry_event": false
+}

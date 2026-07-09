@@ -1,7 +1,7 @@
-title @a times 5t 20t 5t
+title @s times 10t 60t 20t
 
-title @p title ["",{"text":"Take a shot","color":"gold","bold":true}]
+title @s title {"text":"Take a shot","color":"gold","bold":true}
 
-playsound minecraft:entity.wither.ambient player @p
+playsound minecraft:entity.wither.ambient player @s
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_aqua","bold":false,"selector":"@p"},{"color":"dark_aqua","bold":false,"text":" just joined for the first time, take a shot to start off right!"}]
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"dark_aqua","bold":false},{"text":" has just joined for the first time, take a shot to start off right!","color":"dark_aqua","bold":false}]

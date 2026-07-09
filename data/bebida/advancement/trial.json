@@ -1,14 +1,16 @@
 {
   "criteria": {
-    "killed_dragon": {
-      "trigger": "minecraft:player_killed_entity",
+    "in_trial_chambers": {
+      "trigger": "minecraft:location",
       "conditions": {
-        "entity": [
+        "player": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "entity_type": "minecraft:ender_dragon"
+              "location": {
+                "structures": "minecraft:trial_chambers"
+              }
             }
           }
         ]
@@ -17,11 +19,11 @@
   },
   "requirements": [
     [
-      "killed_dragon"
+      "in_trial_chambers"
     ]
   ],
   "rewards": {
-    "function": "bebida:ender_dragon"
+    "function": "bebida:trial"
   },
   "sends_telemetry_event": false
 }

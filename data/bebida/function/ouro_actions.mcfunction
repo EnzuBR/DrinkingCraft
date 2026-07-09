@@ -1,5 +1,9 @@
-title @a times 5t 20t 5t
-title @p subtitle ["",{"text":"To drink","bold":false}]
-title @p title ["",{"text":"Choose someone","color":"gold","bold":true}]
-playsound minecraft:entity.experience_orb.pickup player @p
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"yellow","bold":false,"selector":"@p"},{"color":"yellow","bold":false,"text":" has mined a 24K gold ore and can choose someone to drink!"}]
+title @s times 10t 60t 20t
+
+title @s subtitle {"text":"To drink","color":"white","bold":false}
+
+title @s title {"text":"Choose someone","color":"gold","bold":true}
+
+playsound minecraft:entity.experience_orb.pickup player @s
+
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"yellow","bold":false},{"text":" has mined a 24K gold ore and can choose someone to drink!","color":"yellow","bold":false}]

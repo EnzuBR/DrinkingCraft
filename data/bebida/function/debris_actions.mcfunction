@@ -1,11 +1,11 @@
-title @a times 5t 20t 5t
+title @s times 10t 60t 20t
 
-title @p subtitle ["",{"text":"Choose someone","bold":false},{"selector":"@p"}]
+title @s subtitle {"text":"To take a shot","color":"white","bold":false}
 
-title @p title ["",{"text":"To take a shot","color":"gold","bold":true}]
+title @s title {"text":"Choose someone","color":"gold","bold":true}
 
-playsound minecraft:entity.wither.ambient player @p
+playsound minecraft:entity.wither.ambient player @s
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_red","bold":false,"selector":"@p"},{"color":"dark_red","bold":false,"text":" found the first Ancient Debris and can now choose someone to take a shot!"}]
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"dark_red","bold":false},{"text":" found the first Ancient Debris and can now choose someone to take a shot!","color":"dark_red","bold":false}]
 
 scoreboard players set $global debris 0

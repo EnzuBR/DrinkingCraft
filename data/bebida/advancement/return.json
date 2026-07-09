@@ -1,39 +1,38 @@
 {
-    "criteria": {
-      "killed_ghast": {
-        "trigger": "minecraft:player_killed_entity",
-        "conditions": {
-          "entity": [
+  "criteria": {
+    "killed_ghast": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "entity_type": "minecraft:ghast"
+            }
+          }
+        ],
+        "killing_blow": {
+          "tags": [
             {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "type": "minecraft:ghast"
-              }
+              "id": "minecraft:is_projectile",
+              "expected": true
             }
           ],
-          "killing_blow": {
-            "tags": [
-              {
-                "id": "minecraft:is_projectile",
-                "expected": true
-              }
-            ],
-            "direct_entity": {
-              "type": "minecraft:fireball"
-            }
+          "direct_entity": {
+            "entity_type": "minecraft:fireball"
           }
         }
       }
-    },
-    "requirements": [
-      [
-        "killed_ghast"
-      ]
-    ],
-    "rewards": {
-      "function": "bebida:return"
-    },
-    "sends_telemetry_event": false
-  }
-  
+    }
+  },
+  "requirements": [
+    [
+      "killed_ghast"
+    ]
+  ],
+  "rewards": {
+    "function": "bebida:return"
+  },
+  "sends_telemetry_event": false
+}

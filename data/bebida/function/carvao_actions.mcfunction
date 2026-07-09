@@ -1,9 +1,9 @@
-title @a times 5t 20t 5t
+title @s times 10t 60t 20t
 
-title @p subtitle ["",{"text":"To drink","bold":false}]
+title @s subtitle {"text":"To drink","color":"white","bold":false}
 
-title @p title ["",{"text":"Choose someone","color":"gold","bold":true}]
+title @s title {"text":"Choose someone","color":"gold","bold":true}
 
-playsound minecraft:entity.experience_orb.pickup player @p
+playsound minecraft:entity.experience_orb.pickup player @s
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"gray","bold":false,"selector":"@p"},{"color":"gray","bold":false,"text":" has perfectly mined a coal ore and can now choose someone to drink!"}]
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"gray","bold":false},{"text":" has perfectly mined a coal ore and can now choose someone to drink!","color":"gray","bold":false}]

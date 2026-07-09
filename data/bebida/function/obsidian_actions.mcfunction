@@ -1,7 +1,7 @@
-title @a times 5t 20t 5t
+title @s times 10t 60t 20t
 
-title @p title ["",{"text":"Drink","color":"gold","bold":true}]
+title @s title {"text":"Drink","color":"gold","bold":true}
 
-playsound minecraft:entity.experience_orb.pickup player @p
+playsound minecraft:entity.experience_orb.pickup player @s
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"light_purple","bold":false,"selector":"@p"},{"color":"light_purple","bold":false,"text":" broke an obsidian a bit poorly and must now drink!"}]
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"light_purple","bold":false},{"text":" broke an obsidian a bit poorly and must now drink!","color":"light_purple","bold":false}]

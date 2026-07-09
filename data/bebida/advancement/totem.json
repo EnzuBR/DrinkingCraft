@@ -1,16 +1,16 @@
 {
   "criteria": {
-    "traded": {
-      "trigger": "minecraft:villager_trade"
+    "used_totem": {
+      "trigger": "minecraft:used_totem"
     }
   },
   "requirements": [
     [
-      "traded"
+      "used_totem"
     ]
   ],
   "rewards": {
-    "function": "bebida:trade"
+    "function": "bebida:totem"
   },
   "sends_telemetry_event": false
 }
