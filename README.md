@@ -1,44 +1,67 @@
 # DrinkingCraft
-A Datapack that turns Minecraft into a Drinking Game. Made for Java Edition 26.2 (Chaos Cubed), with pack format ```107.1```. Project inspired by the Datapack "Drunkcraft", which is no longer available, with the purpose of bringing an updated, functional and better version. Made by EnzuBR.
+
+DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you — or the whole server — reaching for a drink. Built for Java Edition 26.2 (Chaos Cubed), pack format `107.1`. Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
 
 ![Example of how the message appears on screen](https://cdn.modrinth.com/data/cached_images/b196f8e4fc15134906590f1bddff9f377c42d804_0.webp)
 
 ![Example of breaking diamond](https://cdn.modrinth.com/data/cached_images/2a8f2bdba248ae4a32b4215f01fc6aec5bdf7fe3.gif)
 
-## Conditions
-- Chance for everyone to drink when someone breaks a diamond, except the one who broke it (25%)
-- Chance to choose someone to drink when breaking an emerald (7.5%)
-- Chance to choose someone to drink when breaking gold, including nether gold (7.5%)
-- Chance to choose someone to drink when breaking iron (4%)
-- Chance to choose someone to drink when breaking coal (3%)
-- Chance to drink when breaking obsidian (5%)
-- Chance to drink when getting your first Crafting Table (33%)
-- Everyone drinks when the first person finds the mushroom biome, except the one who found it
-- Everyone drinks when the first trade with a Villager happens
-- Everyone drinks when the first person gets full diamond armor, except the one who got it
-- Everyone drinks when the Nether is discovered
-- Everyone drinks when a Nether Fortress is found
-- Everyone drinks when the Stronghold is found
-- Everyone drinks when the Trial Chambers are discovered
-- Everyone takes a Shot when the End is discovered
-- Everyone takes a Shot when the Ender Dragon is killed for the first time
-- Everyone takes a Shot when the Warden is killed for the first time, except the one who killed it
-- Everyone takes a Shot when the first person gets full netherite armor, except the one who got it
-- The first person to find an Ancient Debris chooses someone to take a Shot
-- The first person to get an Elytra chooses someone to take a Shot
-- The first person to get Return to Sender chooses someone to take a Shot
+## How it works
 
-- Chance to drink when killing a passive mob (5%)
-- Drink whenever you cheat death with a Totem of Undying
+Every event fires the same way: a title flashes on screen, a sound plays, and a chat message tells the server what happened and who's drinking. Some events always trigger, others roll the dice — and a few let you pick your victim.
 
-- Finish your drink when you die
-- Drink when you go 10 minutes without dying
-- Drink when your equipment breaks (tools, weapons, armor, spears, elytra, mace and more)
+### Odds while playing
 
-- Shot for the first player to get a Crafting Table
-- Shot the first time you join the server
+These events don't fire every time — they roll a chance first. Mining is the main trigger here (surface or deepslate ore, silk touch always spares you), but killing something defenseless can catch up with you too.
 
-To remove the datapack cleanly, run ```/function bebida:uninstall``` before deleting it.
+| Trigger                      | Chance | Effect                          |
+| ------------------------------ | :----: | -------------------------------- |
+| Mining Diamond                 |  25%   | Everyone drinks, except you      |
+| Mining Emerald                 |  7.5%  | You choose someone to drink      |
+| Mining Gold (including Nether) |  7.5%  | You choose someone to drink      |
+| Mining Iron                    |   4%   | You choose someone to drink      |
+| Mining Coal                    |   3%   | You choose someone to drink      |
+| Breaking Obsidian               |   5%   | You drink                        |
+| Killing a passive mob           |   5%   | You drink                        |
+
+### First-time milestones
+
+These only happen once per world — the first player to reach them triggers the event for everyone (or gets to pick a victim), and it never fires again.
+
+| Milestone                        | Effect                                    |
+| --------------------------------- | ------------------------------------------ |
+| Entering the Nether                | Everyone drinks                            |
+| Finding a Nether Fortress          | Everyone drinks                            |
+| Finding a Stronghold               | Everyone drinks                            |
+| Discovering the Trial Chambers     | Everyone drinks                            |
+| Finding the Mushroom Fields biome  | Everyone drinks, except you                |
+| First trade with a Villager        | Everyone drinks                            |
+| Getting full Diamond armor         | Everyone drinks, except you                |
+| Entering the End                   | Everyone takes a shot                      |
+| Killing the Ender Dragon           | Everyone takes a shot                      |
+| Killing the Warden                 | Everyone takes a shot, except you          |
+| Getting full Netherite armor       | Everyone takes a shot, except you          |
+| Finding Ancient Debris             | You choose someone to take a shot          |
+| Getting an Elytra                  | You choose someone to take a shot          |
+| Getting Return to Sender           | You choose someone to take a shot          |
+
+### Every time
+
+No luck, no "first player" — these fire for anyone, every single time.
+
+| Event                          | Effect                       |
+| -------------------------------- | ------------------------------ |
+| Dying                             | You finish your drink          |
+| Surviving 10 minutes without dying | You drink                    |
+| Any tool, weapon, armor piece, or elytra breaking | You drink       |
+| Using a Totem of Undying          | You drink                      |
+| Joining the server for the first time | You take a shot            |
+| Picking up your first Crafting Table | You take a shot             |
+| Picking up any Crafting Table after that | 33% chance you drink    |
+
+## Uninstalling
+
+Run `/function bebida:uninstall` before removing the datapack — it cleans up every scoreboard, tag, and advancement DrinkingCraft added, so nothing lingers behind.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I0149EW0)
 
