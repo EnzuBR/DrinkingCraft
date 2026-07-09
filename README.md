@@ -1,6 +1,6 @@
 # DrinkingCraft
 
-DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you — or the whole server — reaching for a drink. Built for Java Edition 26.2 (Chaos Cubed), pack format `107.1`. Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
+DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you, or the whole server, reaching for a drink. Built for Java Edition 26.2 (Chaos Cubed), pack format `107.1`. Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
 
 ![Example of how the message appears on screen](https://cdn.modrinth.com/data/cached_images/b196f8e4fc15134906590f1bddff9f377c42d804_0.webp)
 
@@ -8,11 +8,11 @@ DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you
 
 ## How it works
 
-Every event fires the same way: a title flashes on screen, a sound plays, and a chat message tells the server what happened and who's drinking. Some events always trigger, others roll the dice — and a few let you pick your victim.
+Every event fires the same way: a title flashes on screen, a sound plays, and a chat message tells the server what happened and who's drinking. Some events always trigger, others roll the dice, and a few let you pick your victim.
 
 ### Odds while playing
 
-These events don't fire every time — they roll a chance first. Mining is the main trigger here (surface or deepslate ore, silk touch always spares you), but killing something defenseless can catch up with you too.
+These events don't fire every time, they roll a chance first. Mining is the main trigger here (surface or deepslate ore, silk touch always spares you), but killing something defenseless can catch up with you too.
 
 | Trigger                      | Chance | Effect                          |
 | ------------------------------ | :----: | -------------------------------- |
@@ -26,7 +26,7 @@ These events don't fire every time — they roll a chance first. Mining is the m
 
 ### First-time milestones
 
-These only happen once per world — the first player to reach them triggers the event for everyone (or gets to pick a victim), and it never fires again.
+These only happen once per world, the first player to reach them triggers the event for everyone (or gets to pick a victim), and it never fires again.
 
 | Milestone                        | Effect                                    |
 | --------------------------------- | ------------------------------------------ |
@@ -47,7 +47,7 @@ These only happen once per world — the first player to reach them triggers the
 
 ### Every time
 
-No luck, no "first player" — these fire for anyone, every single time.
+No luck, no "first player", these fire for anyone, every single time.
 
 | Event                          | Effect                       |
 | -------------------------------- | ------------------------------ |
@@ -61,7 +61,7 @@ No luck, no "first player" — these fire for anyone, every single time.
 
 ## Uninstalling
 
-Run `/function bebida:uninstall` before removing the datapack — it cleans up every scoreboard, tag, and advancement DrinkingCraft added, so nothing lingers behind.
+Run `/function bebida:uninstall` before removing the datapack, it cleans up every scoreboard, tag, and advancement DrinkingCraft added, so nothing lingers behind.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I0149EW0)
 
