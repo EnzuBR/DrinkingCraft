@@ -1,0 +1,39 @@
+{
+  "criteria": {
+    "item_broke": {
+      "trigger": "minecraft:item_durability_changed",
+      "conditions": {
+        "durability": {
+          "max": 0
+        },
+        "delta": {
+          "max": -1
+        }
+      }
+    },
+    "elytra_broke": {
+      "trigger": "minecraft:item_durability_changed",
+      "conditions": {
+        "item": {
+          "items": "minecraft:elytra"
+        },
+        "durability": {
+          "max": 1
+        },
+        "delta": {
+          "max": -1
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "item_broke",
+      "elytra_broke"
+    ]
+  ],
+  "rewards": {
+    "function": "bebida:quebrou"
+  },
+  "sends_telemetry_event": false
+}

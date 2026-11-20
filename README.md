@@ -1,6 +1,6 @@
 # DrinkingCraft
 
-DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you, or the whole server, reaching for a drink. Built for Java Edition 26.2 (Chaos Cubed), pack format `107.1`. Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
+DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you, or the whole server, reaching for a drink. Built for Java Edition 26.3 (Wilderness Bound), pack format `121.0`. Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
 
 ![Example of how the message appears on screen](https://cdn.modrinth.com/data/cached_images/b196f8e4fc15134906590f1bddff9f377c42d804_0.webp)
 
@@ -56,8 +56,8 @@ No luck, no "first player", these fire for anyone, every single time.
 | Any tool, weapon, armor piece, or elytra breaking | You drink       |
 | Using a Totem of Undying          | You drink                      |
 | Joining the server for the first time | You take a shot            |
-| Picking up your first Crafting Table | You take a shot             |
-| Picking up any Crafting Table after that | 33% chance you drink    |
+| First player to get a Crafting Table | You take a shot             |
+| Every other player's first Crafting Table | 33% chance you drink    |
 
 ## Uninstalling
 

@@ -1,0 +1,14 @@
+{
+  "name": "drinkingcraft-tests",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Automated headless integration test suite for DrinkingCraft datapack on Minecraft 26.3",
+  "scripts": {
+    "test": "node run-tests.mjs"
+  },
+  "dependencies": {
+    "mineflayer": "latest",
+    "prismarine-chat": "latest"
+  }
+}

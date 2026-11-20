@@ -12,6 +12,7 @@ advancement revoke @a only bebida:full_dima
 advancement revoke @a only bebida:full_netherite
 advancement revoke @a only bebida:nether
 advancement revoke @a only bebida:passivos
+advancement revoke @a only bebida:quebrou
 advancement revoke @a only bebida:return
 advancement revoke @a only bebida:stronghold
 advancement revoke @a only bebida:totem
@@ -54,111 +55,6 @@ scoreboard objectives remove esmeralda_deep
 # Remove os objetivos de morte
 scoreboard objectives remove mortes
 scoreboard objectives remove sem_morrer
-
-# Remove objetivos de equipamentos quebrados (Picaretas)
-scoreboard objectives remove w_pick
-scoreboard objectives remove s_pick
-scoreboard objectives remove cu_pick
-scoreboard objectives remove i_pick
-scoreboard objectives remove g_pick
-scoreboard objectives remove d_pick
-scoreboard objectives remove n_pick
-
-# Remove objetivos de equipamentos quebrados (Espadas)
-scoreboard objectives remove w_sword
-scoreboard objectives remove s_sword
-scoreboard objectives remove cu_sword
-scoreboard objectives remove i_sword
-scoreboard objectives remove g_sword
-scoreboard objectives remove d_sword
-scoreboard objectives remove n_sword
-
-# Remove objetivos de equipamentos quebrados (Machados)
-scoreboard objectives remove w_axe
-scoreboard objectives remove s_axe
-scoreboard objectives remove cu_axe
-scoreboard objectives remove i_axe
-scoreboard objectives remove g_axe
-scoreboard objectives remove d_axe
-scoreboard objectives remove n_axe
-
-# Remove objetivos de equipamentos quebrados (Pas)
-scoreboard objectives remove w_shovel
-scoreboard objectives remove s_shovel
-scoreboard objectives remove cu_shovel
-scoreboard objectives remove i_shovel
-scoreboard objectives remove g_shovel
-scoreboard objectives remove d_shovel
-scoreboard objectives remove n_shovel
-
-# Remove objetivos de equipamentos quebrados (Enxadas)
-scoreboard objectives remove w_hoe
-scoreboard objectives remove s_hoe
-scoreboard objectives remove cu_hoe
-scoreboard objectives remove i_hoe
-scoreboard objectives remove g_hoe
-scoreboard objectives remove d_hoe
-scoreboard objectives remove n_hoe
-
-# Remove objetivos de equipamentos quebrados (Lancas)
-scoreboard objectives remove w_spear
-scoreboard objectives remove s_spear
-scoreboard objectives remove cu_spear
-scoreboard objectives remove i_spear
-scoreboard objectives remove g_spear
-scoreboard objectives remove d_spear
-scoreboard objectives remove n_spear
-
-# Remove objetivos de equipamentos quebrados (Capacetes)
-scoreboard objectives remove l_helmet
-scoreboard objectives remove c_helmet
-scoreboard objectives remove cu_helmet
-scoreboard objectives remove i_helmet
-scoreboard objectives remove g_helmet
-scoreboard objectives remove d_helmet
-scoreboard objectives remove n_helmet
-scoreboard objectives remove t_helmet
-
-# Remove objetivos de equipamentos quebrados (Peitorais)
-scoreboard objectives remove l_chestplate
-scoreboard objectives remove c_chestplate
-scoreboard objectives remove cu_chestplate
-scoreboard objectives remove i_chestplate
-scoreboard objectives remove g_chestplate
-scoreboard objectives remove d_chestplate
-scoreboard objectives remove n_chestplate
-
-# Remove objetivos de equipamentos quebrados (Calcas)
-scoreboard objectives remove l_leggings
-scoreboard objectives remove c_leggings
-scoreboard objectives remove cu_leggings
-scoreboard objectives remove i_leggings
-scoreboard objectives remove g_leggings
-scoreboard objectives remove d_leggings
-scoreboard objectives remove n_leggings
-
-# Remove objetivos de equipamentos quebrados (Botas)
-scoreboard objectives remove l_boots
-scoreboard objectives remove c_boots
-scoreboard objectives remove cu_boots
-scoreboard objectives remove i_boots
-scoreboard objectives remove g_boots
-scoreboard objectives remove d_boots
-scoreboard objectives remove n_boots
-
-# Remove objetivos de equipamentos Misc
-scoreboard objectives remove shear
-scoreboard objectives remove flint_and_steel
-scoreboard objectives remove fishing_rod
-scoreboard objectives remove carrot_on_a_stick
-scoreboard objectives remove warped_fungus_on_a_stick
-scoreboard objectives remove shield
-scoreboard objectives remove bow
-scoreboard objectives remove crossbow
-scoreboard objectives remove trident
-scoreboard objectives remove mace
-scoreboard objectives remove brush
-scoreboard objectives remove elytra
 
 # Remove a tag init dos jogadores
 tag @a remove init

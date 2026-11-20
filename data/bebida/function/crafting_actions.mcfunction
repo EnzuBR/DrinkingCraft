@@ -1,8 +1,10 @@
 title @s times 10t 60t 20t
 
+title @s subtitle {"text":""}
+
 title @s title {"text":"Take a shot","color":"gold","bold":true}
 
-playsound minecraft:entity.wither.ambient player @s
+playsound minecraft:entity.wither.ambient player @s ~ ~ ~ 1 1
 
 tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"dark_aqua","bold":false},{"text":" has already gotten a crafting table. What are you, a speedrunner? Take a shot to relax.","color":"dark_aqua","bold":false}]
 
