@@ -24,10 +24,10 @@ export function registerSuite02(suite, test) {
       });
       ctx.bots.alpha = botAlpha;
 
-      const title = await botAlpha.recorder.waitForTitle('Dê um shot');
+      const title = await botAlpha.recorder.waitForTitle('Toma un shot');
       assert.equal(title.subtitleAtTime ?? '', '', `Expected empty subtitle on first_join, got "${title.subtitleAtTime}"`);
       await botAlpha.recorder.waitForSound('entity.wither.ambient');
-      await botAlpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} acabou de entrar pela primeira vez`));
+      await botAlpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} acaba de entrar por primera vez`));
 
       const tagged = await hasTag(ctx.server.rcon, BOT_ALPHA, 'init');
       assert.equal(tagged, true, `${BOT_ALPHA} should have init tag after first_join`);
@@ -47,9 +47,9 @@ export function registerSuite02(suite, test) {
 
       await botAlpha.recorder.expectNone(
         {
-          titleMatcher: /Dê um shot/,
+          titleMatcher: /Toma un shot/,
           soundMatcher: /entity\.wither\.ambient/,
-          chatMatcher: /entrar pela primeira vez/,
+          chatMatcher: /entrar por primera vez/,
         },
         1500,
       );
@@ -66,17 +66,17 @@ export function registerSuite02(suite, test) {
       });
       ctx.bots.beta = botBeta;
 
-      const betaTitle = await botBeta.recorder.waitForTitle('Dê um shot');
+      const betaTitle = await botBeta.recorder.waitForTitle('Toma un shot');
       assert.equal(betaTitle.subtitleAtTime ?? '', '', 'BotBeta first_join should have empty subtitle');
       await botBeta.recorder.waitForSound('entity.wither.ambient');
-      await botBeta.recorder.waitForChat(new RegExp(`${BOT_BETA} acabou de entrar pela primeira vez`));
+      await botBeta.recorder.waitForChat(new RegExp(`${BOT_BETA} acaba de entrar por primera vez`));
 
       assert.equal(await hasTag(ctx.server.rcon, BOT_BETA, 'init'), true, `${BOT_BETA} should have init tag`);
 
-      await ctx.bots.alpha.recorder.waitForChat(new RegExp(`${BOT_BETA} acabou de entrar pela primeira vez`));
+      await ctx.bots.alpha.recorder.waitForChat(new RegExp(`${BOT_BETA} acaba de entrar por primera vez`));
       await ctx.bots.alpha.recorder.expectNone(
         {
-          titleMatcher: /Dê um shot/,
+          titleMatcher: /Toma un shot/,
           soundMatcher: /entity\.wither\.ambient/,
         },
         1000,
@@ -99,15 +99,15 @@ export function registerSuite02(suite, test) {
       assert.equal(await hasTag(server.rcon, BOT_BETA, 'init'), true, '.load.mcfunction must add init to already-online players');
       await bots.beta.recorder.expectNone(
         {
-          titleMatcher: /Dê um shot/,
+          titleMatcher: /Toma un shot/,
           soundMatcher: /entity\.wither\.ambient/,
-          chatMatcher: /entrar pela primeira vez/,
+          chatMatcher: /entrar por primera vez/,
         },
         500,
       );
       await bots.alpha.recorder.expectNone(
         {
-          chatMatcher: /entrar pela primeira vez/,
+          chatMatcher: /entrar por primera vez/,
         },
         200,
       );
@@ -120,8 +120,8 @@ export function registerSuite02(suite, test) {
 
       const reloadErrors = server.getDatapackErrors(logCursor);
       assert.deepEqual(reloadErrors, [], `Datapack errors on enable/reload:\n${reloadErrors.join('\n')}`);
-      await bots.beta.recorder.expectNone({ chatMatcher: /entrar pela primeira vez/, titleMatcher: /.*/ }, 300);
-      await bots.alpha.recorder.expectNone({ chatMatcher: /entrar pela primeira vez/, titleMatcher: /.*/ }, 300);
+      await bots.beta.recorder.expectNone({ chatMatcher: /entrar por primera vez/, titleMatcher: /.*/ }, 300);
+      await bots.alpha.recorder.expectNone({ chatMatcher: /entrar por primera vez/, titleMatcher: /.*/ }, 300);
     });
   });
 }

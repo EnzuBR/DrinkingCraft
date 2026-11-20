@@ -41,15 +41,15 @@ export function registerSuite06(suite, test) {
 
       await server.cmd(`kill ${BOT_ALPHA}`);
 
-      const title = await alpha.recorder.waitForTitle('Beba tudo');
+      const title = await alpha.recorder.waitForTitle('Bébelo todo');
       assert.equal(title.subtitleAtTime, '', `morte should clear subtitle, got "${title.subtitleAtTime}"`);
       await alpha.recorder.waitForSound('block.anvil.place');
-      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} morreu e agora tem que acabar sua bebida!`));
+      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} murió y ahora tiene que terminarse su bebida\\.`));
 
-      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} morreu e agora tem que acabar sua bebida!`));
+      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} murió y ahora tiene que terminarse su bebida\\.`));
       await beta.recorder.expectNone({ titleMatcher: /.*/, soundMatcher: /block\.anvil\.place/ }, 1500);
 
-      await alpha.recorder.expectNone({ chatMatcher: /muito tempo sem morrer/ }, 200);
+      await alpha.recorder.expectNone({ chatMatcher: /demasiado tiempo sin morir/ }, 200);
 
       const mortes = await getScore(server.rcon, BOT_ALPHA, 'mortes');
       assert.equal(mortes.hasScore, false, 'mortes score must be reset after morte_actions');
@@ -66,12 +66,12 @@ export function registerSuite06(suite, test) {
       beta.recorder.clear();
       await server.cmd(`scoreboard players set ${BOT_ALPHA} sem_morrer 11990`);
 
-      const title = await alpha.recorder.waitForTitle('Beba', 6000);
+      const title = await alpha.recorder.waitForTitle('Bebe', 6000);
       assert.equal(title.subtitleAtTime, '', 'sem_morrer should have empty subtitle');
       await alpha.recorder.waitForSound('entity.experience_orb.pickup');
-      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} ficou muito tempo sem morrer`));
+      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} lleva demasiado tiempo sin morir`));
 
-      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} ficou muito tempo sem morrer`));
+      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} lleva demasiado tiempo sin morir`));
       await beta.recorder.expectNone({ titleMatcher: /.*/, soundMatcher: /entity\.experience_orb\.pickup/ }, 400);
 
       const semMorrer = await getScore(server.rcon, BOT_ALPHA, 'sem_morrer');
@@ -89,12 +89,12 @@ export function registerSuite06(suite, test) {
         await equipHotbar0(server.rcon, alpha, 'minecraft:wooden_pickaxe[minecraft:damage=58]');
         await placeAndDig(server.rcon, alpha, DIG_BLOCK_POS, 'minecraft:stone');
 
-        const title = await alpha.recorder.waitForTitle('Beba');
+        const title = await alpha.recorder.waitForTitle('Bebe');
         assert.equal(title.subtitleAtTime, '', `quebrou (${i}) should have empty subtitle`);
         await alpha.recorder.waitForSound('entity.experience_orb.pickup');
-        await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} quebrou um equipamento e agora deve beber!`));
+        await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} rompió una pieza de equipo y ahora tiene que beber\\.`));
 
-        await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} quebrou um equipamento`));
+        await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} rompió una pieza de equipo`));
         await beta.recorder.expectNone({ titleMatcher: /.*/, soundMatcher: /entity\.experience_orb\.pickup/ }, 300);
 
         assert.equal(await hasAdvancement(server.rcon, BOT_ALPHA, 'quebrou'), false, `bebida:quebrou must auto-revoke (#${i})`);
@@ -113,7 +113,7 @@ export function registerSuite06(suite, test) {
 
       let elytraTriggered = false;
       for (let step = 0; step < 30; step++) {
-        if (alpha.recorder.titles.some((t) => t.text === 'Beba')) {
+        if (alpha.recorder.titles.some((t) => t.text === 'Bebe')) {
           elytraTriggered = true;
           break;
         }
@@ -134,11 +134,11 @@ export function registerSuite06(suite, test) {
 
       assert.equal(elytraTriggered, true, 'Elytra reaching durability 1 must trigger bebida:quebrou');
       await alpha.recorder.waitForSound('entity.experience_orb.pickup');
-      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} quebrou um equipamento`));
+      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} rompió una pieza de equipo`));
       assert.equal(await hasAdvancement(server.rcon, BOT_ALPHA, 'quebrou'), false, 'bebida:quebrou must auto-revoke after Elytra');
     });
 
-    test('crafting triggers Dê um shot once for 1st player globally, then 33% Beba (never both) for 2nd player', async ({ server, bots }) => {
+    test('crafting triggers Toma un shot once for 1st player globally, then 33% Bebe (never both) for 2nd player', async ({ server, bots }) => {
       const { alpha, beta } = bots;
       await preparePlayer(server.rcon, alpha, { ...ARENA_POS, gamemode: 'survival' });
       await preparePlayer(server.rcon, beta, { ...ARENA_POS, gamemode: 'survival' });
@@ -149,17 +149,17 @@ export function registerSuite06(suite, test) {
       await server.cmd('clear @a minecraft:crafting_table');
       await sleep(150);
 
-      // 1st player gets crafting_table -> must get ONLY crafting_actions (Dê um shot), NOT crafting_actions2
+      // 1st player gets crafting_table -> must get ONLY crafting_actions (Toma un shot), NOT crafting_actions2
       alpha.recorder.clear();
       beta.recorder.clear();
       await server.cmd(`give ${BOT_ALPHA} minecraft:crafting_table`);
 
-      const alphaTitle = await alpha.recorder.waitForTitle('Dê um shot');
+      const alphaTitle = await alpha.recorder.waitForTitle('Toma un shot');
       assert.equal(alphaTitle.subtitleAtTime, '', 'crafting_actions must have empty subtitle');
       await alpha.recorder.waitForSound('entity.wither.ambient');
-      await alpha.recorder.waitForChat(/Tá achando que é speedrun\?/);
+      await alpha.recorder.waitForChat(/¿Qué eres, un speedrunner\?/);
 
-      await alpha.recorder.expectNone({ titleMatcher: /^Beba$/, chatMatcher: /crafting table falsificada/ }, 900);
+      await alpha.recorder.expectNone({ titleMatcher: /^Bebe$/, chatMatcher: /mesa de crafteo defectuosa/ }, 900);
       assert.equal((await getScore(server.rcon, '$global', 'crafting')).value, 0, '$global crafting must be 0');
 
       // Giving BotAlpha a second crafting_table does NOT re-trigger (advancement not revoked)
@@ -167,7 +167,7 @@ export function registerSuite06(suite, test) {
       await server.cmd(`give ${BOT_ALPHA} minecraft:crafting_table`);
       await alpha.recorder.expectNone({ titleMatcher: /.*/, chatMatcher: /<DrinkingCraft>/ }, 700);
 
-      // 2nd player (BotBeta): can NEVER get Dê um shot, and has 33% chance to get Beba
+      // 2nd player (BotBeta): can NEVER get Toma un shot, and has 33% chance to get Bebe
       let gotDrink = false;
       for (let attempt = 0; attempt < 40; attempt++) {
         beta.recorder.clear();
@@ -177,20 +177,20 @@ export function registerSuite06(suite, test) {
         await server.cmd(`give ${BOT_BETA} minecraft:crafting_table`);
         await sleep(160);
 
-        const shotHit = beta.recorder.titles.find((t) => t.text === 'Dê um shot');
-        assert.equal(shotHit, undefined, '2nd player must NEVER trigger crafting_actions (Dê um shot)');
+        const shotHit = beta.recorder.titles.find((t) => t.text === 'Toma un shot');
+        assert.equal(shotHit, undefined, '2nd player must NEVER trigger crafting_actions (Toma un shot)');
 
-        if (beta.recorder.titles.some((t) => t.text === 'Beba')) {
+        if (beta.recorder.titles.some((t) => t.text === 'Bebe')) {
           gotDrink = true;
           break;
         }
       }
 
       assert.equal(gotDrink, true, '2nd player did not hit 33% crafting_actions2 within 40 attempts');
-      const betaTitle = await beta.recorder.waitForTitle('Beba');
+      const betaTitle = await beta.recorder.waitForTitle('Bebe');
       assert.equal(betaTitle.subtitleAtTime, '', 'crafting_actions2 must have empty subtitle');
       await beta.recorder.waitForSound('entity.experience_orb.pickup');
-      await beta.recorder.waitForChat(new RegExp(`${BOT_BETA} conseguiu uma crafting table falsificada`));
+      await beta.recorder.waitForChat(new RegExp(`${BOT_BETA} consiguió una mesa de crafteo defectuosa`));
 
       // Giving BotBeta another crafting_table while advancement stays granted does NOT re-trigger
       beta.recorder.clear();
@@ -209,12 +209,12 @@ export function registerSuite06(suite, test) {
         await sleep(100);
         await server.cmd(`damage ${BOT_ALPHA} 100 minecraft:generic`);
 
-        const title = await alpha.recorder.waitForTitle('Beba');
+        const title = await alpha.recorder.waitForTitle('Bebe');
         assert.equal(title.subtitleAtTime, '', `totem (#${i}) must have empty subtitle`);
         await alpha.recorder.waitForSound('entity.experience_orb.pickup');
-        await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} enganou a morte com um Totem da Imortalidade`));
+        await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} engañó a la muerte con un Tótem de la inmortalidad`));
 
-        await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} enganou a morte com um Totem da Imortalidade`));
+        await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} engañó a la muerte con un Tótem de la inmortalidad`));
         await beta.recorder.expectNone({ titleMatcher: /.*/, soundMatcher: /entity\.experience_orb\.pickup/ }, 250);
 
         assert.equal(await hasAdvancement(server.rcon, BOT_ALPHA, 'totem'), false, `bebida:totem must auto-revoke (#${i})`);
@@ -252,7 +252,7 @@ export function registerSuite06(suite, test) {
           false,
           'bebida:passivos must auto-revoke immediately after passive kill',
         );
-        if (alpha.recorder.titles.some((t) => t.text === 'Beba')) {
+        if (alpha.recorder.titles.some((t) => t.text === 'Bebe')) {
           hit = true;
           break;
         }
@@ -263,7 +263,7 @@ export function registerSuite06(suite, test) {
         for (let attempt = 0; attempt < 300; attempt++) {
           await server.cmd(`advancement grant ${BOT_ALPHA} only bebida:passivos`);
           await sleep(20);
-          if (alpha.recorder.titles.some((t) => t.text === 'Beba')) {
+          if (alpha.recorder.titles.some((t) => t.text === 'Bebe')) {
             hit = true;
             break;
           }
@@ -271,11 +271,11 @@ export function registerSuite06(suite, test) {
       }
 
       assert.equal(hit, true, 'passivos did not trigger passivos_actions within RNG attempts');
-      const title = await alpha.recorder.waitForTitle('Beba');
+      const title = await alpha.recorder.waitForTitle('Bebe');
       assert.equal(title.subtitleAtTime, '', 'passivos_actions must have empty subtitle');
       await alpha.recorder.waitForSound('entity.experience_orb.pickup');
-      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} matou um animal indefeso e agora deve beber!`));
-      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} matou um animal indefeso`));
+      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} mató a un animal indefenso y ahora tiene que beber\\.`));
+      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} mató a un animal indefenso`));
       assert.equal(await hasAdvancement(server.rcon, BOT_ALPHA, 'passivos'), false);
     });
   });

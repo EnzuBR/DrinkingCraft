@@ -98,11 +98,11 @@ export function registerSuite05(suite, test) {
           }
         }
         assert.equal(hit, true, `Obsidian (${variant.obj}) failed to trigger within 300 tries while holding Silk Touch`);
-        const t = await alpha.recorder.waitForTitle('Beba');
+        const t = await alpha.recorder.waitForTitle('Bebe');
         assert.equal(t.subtitleAtTime, '', 'obsidian should send empty subtitle');
         await alpha.recorder.waitForSound('entity.experience_orb.pickup');
-        await alpha.recorder.waitForChat(/quebrou um obsidian meio mal/);
-        await beta.recorder.waitForChat(/quebrou um obsidian meio mal/);
+        await alpha.recorder.waitForChat(/rompió una obsidiana un poco mal/);
+        await beta.recorder.waitForChat(/rompió una obsidiana un poco mal/);
         await beta.recorder.expectNone({ titleMatcher: /.*/, soundMatcher: /entity\.experience_orb\.pickup/ }, 200);
         assert.equal((await getScore(server.rcon, BOT_ALPHA, variant.obj)).hasScore, false);
       }
@@ -136,7 +136,7 @@ export function registerSuite05(suite, test) {
 
           const alphaTitle = await alpha.recorder.waitForTitle(orbit.title);
           if (orbit.scope === 'everyone_except') {
-            assert.equal(alphaTitle.subtitleAtTime, 'Menos você', `${variant.obj}: @s expected "Menos você", got "${alphaTitle.subtitleAtTime}"`);
+            assert.equal(alphaTitle.subtitleAtTime, 'Menos tú', `${variant.obj}: @s expected "Menos tú", got "${alphaTitle.subtitleAtTime}"`);
             const betaTitle = await beta.recorder.waitForTitle(orbit.title);
             assert.equal(betaTitle.subtitleAtTime, `Menos ${BOT_ALPHA}`, `${variant.obj}: @a expected "Menos ${BOT_ALPHA}", got "${betaTitle.subtitleAtTime}"`);
             await alpha.recorder.waitForSound(orbit.sound);

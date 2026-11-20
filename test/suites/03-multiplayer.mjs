@@ -37,15 +37,15 @@ export function registerSuite03(suite, test) {
       await server.cmd(`give ${BOT_ALPHA} minecraft:diamond_leggings`);
       await server.cmd(`give ${BOT_ALPHA} minecraft:diamond_boots`);
 
-      const alphaTitle = await alpha.recorder.waitForTitle('Todos bebem');
-      assert.equal(alphaTitle.subtitleAtTime, 'Menos você', `@s should see "Menos você", got "${alphaTitle.subtitleAtTime}"`);
+      const alphaTitle = await alpha.recorder.waitForTitle('Todos beben');
+      assert.equal(alphaTitle.subtitleAtTime, 'Menos tú', `@s should see "Menos tú", got "${alphaTitle.subtitleAtTime}"`);
       await alpha.recorder.waitForSound('entity.player.levelup');
-      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} foi o primeiro a conseguir Full Dima.*menos ${BOT_ALPHA}!`));
+      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} fue el primero en conseguir armadura completa de diamante.*menos ${BOT_ALPHA}\\.`));
 
-      const betaTitle = await beta.recorder.waitForTitle('Todos bebem');
+      const betaTitle = await beta.recorder.waitForTitle('Todos beben');
       assert.equal(betaTitle.subtitleAtTime, `Menos ${BOT_ALPHA}`, `@a should see "Menos ${BOT_ALPHA}", got "${betaTitle.subtitleAtTime}"`);
       await beta.recorder.waitForSound('entity.player.levelup');
-      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} foi o primeiro a conseguir Full Dima.*menos ${BOT_ALPHA}!`));
+      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} fue el primero en conseguir armadura completa de diamante.*menos ${BOT_ALPHA}\\.`));
     });
 
     test('@s-only milestone isolates title/subtitle/sound from @a while broadcasting chat', async ({ server, bots }) => {
@@ -56,12 +56,12 @@ export function registerSuite03(suite, test) {
       // Trigger real inventory_changed advancement bebida:debris for BotAlpha
       await server.cmd(`give ${BOT_ALPHA} minecraft:ancient_debris`);
 
-      const alphaTitle = await alpha.recorder.waitForTitle('Escolha alguém');
-      assert.equal(alphaTitle.subtitleAtTime, 'Para dar um shot', `Expected "Para dar um shot", got "${alphaTitle.subtitleAtTime}"`);
+      const alphaTitle = await alpha.recorder.waitForTitle('Elige a alguien');
+      assert.equal(alphaTitle.subtitleAtTime, 'Para tomar un shot', `Expected "Para tomar un shot", got "${alphaTitle.subtitleAtTime}"`);
       await alpha.recorder.waitForSound('entity.wither.ambient');
-      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} encontrou o primeiro Ancient Debris`));
+      await alpha.recorder.waitForChat(new RegExp(`${BOT_ALPHA} encontró el primer Ancient Debris`));
 
-      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} encontrou o primeiro Ancient Debris`));
+      await beta.recorder.waitForChat(new RegExp(`${BOT_ALPHA} encontró el primer Ancient Debris`));
       await beta.recorder.expectNone(
         {
           titleMatcher: /.*/,
@@ -74,13 +74,13 @@ export function registerSuite03(suite, test) {
 
     test('Sticky subtitle prevention clears previous subtitle explicitly on subsequent @s title', async ({ server, bots }) => {
       const { alpha } = bots;
-      // BotAlpha's previous subtitle was "Para dar um shot"; trigger death (no subtitle) without touching any $global lock
-      assert.equal(alpha.recorder.lastSubtitle, 'Para dar um shot', 'Precondition: last subtitle should be "Para dar um shot"');
+      // BotAlpha's previous subtitle was "Para tomar un shot"; trigger death (no subtitle) without touching any $global lock
+      assert.equal(alpha.recorder.lastSubtitle, 'Para tomar un shot', 'Precondition: last subtitle should be "Para tomar un shot"');
 
       alpha.recorder.clear();
       await server.cmd(`kill ${BOT_ALPHA}`);
 
-      const title = await alpha.recorder.waitForTitle('Beba tudo');
+      const title = await alpha.recorder.waitForTitle('Bébelo todo');
       assert.equal(title.subtitleAtTime, '', `Expected empty subtitle after explicit reset, got "${title.subtitleAtTime}"`);
       const clearedPacket = alpha.recorder.subtitles.find((s) => s.text === '');
       assert.ok(clearedPacket, 'Expected explicit set_title_subtitle("") packet before title');

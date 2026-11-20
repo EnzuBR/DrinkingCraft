@@ -21,7 +21,7 @@ async function assertMilestoneTriggered(milestone, bots, server) {
 
   const alphaTitle = await alpha.recorder.waitForTitle(milestone.title);
   if (milestone.scope === 'everyone_except') {
-    assert.equal(alphaTitle.subtitleAtTime, 'Menos você', `${milestone.name}: @s expected "Menos você", got "${alphaTitle.subtitleAtTime}"`);
+    assert.equal(alphaTitle.subtitleAtTime, 'Menos tú', `${milestone.name}: @s expected "Menos tú", got "${alphaTitle.subtitleAtTime}"`);
     const betaTitle = await beta.recorder.waitForTitle(milestone.title);
     assert.equal(betaTitle.subtitleAtTime, `Menos ${BOT_ALPHA}`, `${milestone.name}: @a expected "Menos ${BOT_ALPHA}", got "${betaTitle.subtitleAtTime}"`);
     await alpha.recorder.waitForSound(milestone.sound);

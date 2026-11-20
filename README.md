@@ -1,69 +1,69 @@
 # DrinkingCraft
 
-Um datapack que transforma o Minecraft em um jogo de bebida. Cada minério que você quebra, chefe que derrota ou marco que alcança pode fazer você — ou o servidor inteiro — dar um gole ou virar um shot. Feito para Minecraft Java Edition 26.3 (Wilderness Bound), pack format `121.0`. Inspirado no antigo "Drunkcraft", recriado do zero para ser atualizado, confiável e em português. Feito por EnzuBR.
+Un datapack que convierte Minecraft en un juego de bebida. Cada mineral que picas, jefe que derrotas o hito que alcanzas puede hacer que tú, o todo el servidor, tengan que beber o tomar un shot. Hecho para Minecraft Java Edition 26.3 (Wilderness Bound), pack format `121.0`. Inspirado en el antiguo "Drunkcraft", recreado desde cero para estar actualizado, ser confiable y estar en español. Hecho por EnzuBR.
 
-![Exemplo de como fica a mensagem na tela](https://cdn.modrinth.com/data/cached_images/7684b7006b816873d0f73e328ab49da0b437e8f9_0.webp)
+![Ejemplo de cómo aparece el mensaje en pantalla](https://cdn.modrinth.com/data/cached_images/b196f8e4fc15134906590f1bddff9f377c42d804_0.webp)
 
-![Exemplo quebrando diamante](https://cdn.modrinth.com/data/cached_images/78b106b706a28de664e906c0fd52d4700f4c1620.gif)
+![Ejemplo picando diamante](https://cdn.modrinth.com/data/cached_images/2a8f2bdba248ae4a32b4215f01fc6aec5bdf7fe3.gif)
 
-## Como funciona
+## Cómo funciona
 
-Todo evento dispara da mesma forma: um título aparece na tela, um som toca e uma mensagem no chat avisa o servidor o que aconteceu e quem vai beber. Alguns eventos disparam sempre, outros dependem de sorte e alguns deixam você escolher a vítima.
+Cada evento funciona igual: aparece un título en pantalla, suena una alerta y un mensaje en el chat le avisa al servidor qué pasó y quién tiene que beber. Algunos eventos ocurren siempre, otros dependen de la suerte y algunos te dejan elegir a la víctima.
 
-### Chances jogando
+### Probabilidades jugando
 
-Esses eventos não acontecem toda hora; primeiro rolam uma chance. A mineração é o gatilho principal (minérios normais ou de ardosia/deepslate, e Toque Suave protege nos minérios, exceto obsidian), mas matar um animal indefeso também pode sobrar para você.
+Estos eventos no se activan siempre; primero tiran un dado. La minería es el gatillo principal (minerales normales o de pizarra profunda/deepslate, y Toque de seda siempre te protege en los minerales, excepto con la obsidiana), aunque matar a un animal indefenso también te puede jugar en contra.
 
-| Gatilho | Chance | Efeito |
+| Gatillo | Probabilidad | Efecto |
 | --- | :---: | --- |
-| Minerar Diamante | 25% | Todos bebem, menos você |
-| Minerar Esmeralda | 7.5% | Você escolhe alguém para beber |
-| Minerar Ouro (inclui Nether) | 7.5% | Você escolhe alguém para beber |
-| Minerar Ferro | 4% | Você escolhe alguém para beber |
-| Minerar Carvão | 3% | Você escolhe alguém para beber |
-| Quebrar Obsidian (inclui Chorona) | 5% | Você bebe |
-| Matar um mob passivo | 5% | Você bebe |
+| Picar Diamante | 25% | Todos beben, menos tú |
+| Picar Esmeralda | 7.5% | Eliges a alguien para beber |
+| Picar Oro (incluye Nether) | 7.5% | Eliges a alguien para beber |
+| Picar Hierro | 4% | Eliges a alguien para beber |
+| Picar Carbón | 3% | Eliges a alguien para beber |
+| Romper Obsidiana (incluye Llorosa) | 5% | Bebes |
+| Matar a un mob pasivo | 5% | Bebes |
 
-### Marcos únicos
+### Hitos únicos
 
-Esses só acontecem uma vez por mundo: o primeiro jogador a alcançar dispara o evento para todos (ou escolhe alguém) e o marco não dispara mais.
+Estos solo ocurren una vez por mundo: el primer jugador en lograrlo activa el evento para todos (o elige a alguien) y no vuelve a dispararse.
 
-| Marco | Efeito |
+| Hito | Efecto |
 | --- | --- |
-| Entrar no Nether | Todos bebem |
-| Encontrar uma Fortaleza do Nether | Todos bebem |
-| Encontrar a Stronghold | Todos bebem |
-| Descobrir a Trial Chambers | Todos bebem |
-| Encontrar o bioma de Cogumelos | Todos bebem, menos você |
-| Primeira troca com um Villager | Todos bebem |
-| Conseguir armadura completa de Diamante | Todos bebem, menos você |
-| Entrar no End | Todos dão um shot |
-| Matar o Ender Dragon | Todos dão um shot |
-| Matar o Warden | Todos dão um shot, menos você |
-| Conseguir armadura completa de Netherite | Todos dão um shot, menos você |
-| Encontrar Ancient Debris | Você escolhe alguém para dar um shot |
-| Conseguir uma Elytra | Você escolhe alguém para dar um shot |
-| Conseguir "De volta ao remetente" (Ghast) | Você escolhe alguém para dar um shot |
+| Entrar al Nether | Todos beben |
+| Encontrar una Fortaleza del Nether | Todos beben |
+| Encontrar la Stronghold | Todos beben |
+| Descubrir las Trial Chambers | Todos beben |
+| Encontrar el bioma de Champiñones | Todos beben, menos tú |
+| Primer intercambio con un Aldeano | Todos beben |
+| Conseguir armadura completa de Diamante | Todos beben, menos tú |
+| Entrar al End | Todos toman un shot |
+| Matar al Ender Dragon | Todos toman un shot |
+| Matar al Warden | Todos toman un shot, menos tú |
+| Conseguir armadura completa de Netherite | Todos toman un shot, menos tú |
+| Encontrar Ancient Debris | Eliges a alguien para tomar un shot |
+| Conseguir una Elytra | Eliges a alguien para tomar un shot |
+| Conseguir "De vuelta al remitente" (Ghast) | Eliges a alguien para tomar un shot |
 
-### Toda vez
+### Siempre ocurren
 
-Sem sorte nem "primeiro jogador": esses disparam para qualquer jogador, toda vez.
+Sin suerte ni "primer jugador": estos se activan para cualquier jugador, todas las veces.
 
-| Evento | Efeito |
+| Evento | Efecto |
 | --- | --- |
-| Morrer | Você acaba sua bebida |
-| Ficar 10 minutos sem morrer | Você bebe |
-| Quebrar qualquer ferramenta, arma, armadura ou Elytra | Você bebe |
-| Usar um Totem da Imortalidade | Você bebe |
-| Entrar no servidor pela primeira vez | Você dá um shot |
-| Primeiro jogador a conseguir uma Crafting Table | Você dá um shot |
-| Primeira Crafting Table dos demais jogadores | 33% de chance de beber |
+| Morir | Te terminas tu bebida |
+| Sobrevivir 10 minutos sin morir | Bebes |
+| Romper cualquier herramienta, arma, armadura o Elytra | Bebes |
+| Usar un Tótem de la inmortalidad | Bebes |
+| Entrar al servidor por primera vez | Tomas un shot |
+| Primer jugador en conseguir una Mesa de crafteo | Tomas un shot |
+| Primera Mesa de crafteo de los demás jugadores | 33% de probabilidad de beber |
 
-## Desinstalação
+## Desinstalación
 
-Execute `/function bebida:uninstall` antes de remover o datapack para limpar todos os scoreboards, tags e advancements criados pelo DrinkingCraft sem deixar rastros.
+Ejecuta `/function bebida:uninstall` antes de quitar el datapack para limpiar todos los scoreboards, etiquetas y logros que DrinkingCraft creó sin dejar rastros.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I0149EW0)
 
-## Outros idiomas
+## Otros idiomas
 [![USA](https://cdn.modrinth.com/data/cached_images/2bc64824a9d35794d3f982b385d613c8b5b20f13.png)](https://modrinth.com/datapack/drinkingcraft-eng) [![BR](https://cdn.modrinth.com/data/cached_images/8f056b9e447c97c2e6597c6c3e6f150b037481db.png)](https://modrinth.com/datapack/drinkingcraft)
