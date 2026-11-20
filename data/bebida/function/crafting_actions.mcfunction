@@ -1,9 +1,11 @@
-title @a times 5t 20t 5t
+title @s times 10t 60t 20t
 
-title @p title ["",{"text":"De shot","color":"gold","bold":true}]
+title @s subtitle {"text":""}
 
-playsound minecraft:entity.wither.ambient player @p
+title @s title {"text":"Dê um shot","color":"gold","bold":true}
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_aqua","bold":false,"selector":"@p"},{"color":"dark_aqua","bold":false,"text":" já conseguiu uma crafting table, ta achando que é speedrun? Toma um shot pra relaxar."}]
+playsound minecraft:entity.wither.ambient player @s ~ ~ ~ 1 1
+
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"dark_aqua","bold":false},{"text":" já conseguiu uma crafting table. Tá achando que é speedrun? Toma um shot pra relaxar.","color":"dark_aqua","bold":false}]
 
 scoreboard players set $global crafting 0

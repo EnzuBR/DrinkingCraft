@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "in_trial_chambers": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "minecraft:trial_chambers"
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_trial_chambers"
+    ]
+  ],
+  "rewards": {
+    "function": "bebida:trial"
+  },
+  "sends_telemetry_event": false
+}

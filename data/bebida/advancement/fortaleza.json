@@ -1,25 +1,27 @@
 {
-    "criteria": {
-      "fortress": {
-        "trigger": "minecraft:location",
-        "conditions": {
-          "player": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "location": {
-                  "structures": "minecraft:fortress"
-                }
-              }
+  "criteria": {
+    "fortress": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "minecraft:fortress"
             }
-          ]
+          }
         }
       }
-    },
-    "rewards": {
-      "function": "bebida:fortaleza"
-    },
-    "sends_telemetry_event": false
-  }
-  
+    }
+  },
+  "requirements": [
+    [
+      "fortress"
+    ]
+  ],
+  "rewards": {
+    "function": "bebida:fortaleza"
+  },
+  "sends_telemetry_event": false
+}

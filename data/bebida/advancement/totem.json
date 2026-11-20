@@ -1,0 +1,16 @@
+{
+  "criteria": {
+    "used_totem": {
+      "trigger": "minecraft:used_totem"
+    }
+  },
+  "requirements": [
+    [
+      "used_totem"
+    ]
+  ],
+  "rewards": {
+    "function": "bebida:totem"
+  },
+  "sends_telemetry_event": false
+}

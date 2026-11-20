@@ -1,13 +1,13 @@
-title @a times 5t 20t 5t
+title @a times 10t 60t 20t
 
-title @a subtitle ["",{"text":"Menos ","bold":false},{"selector":"@p"}]
+title @a subtitle [{"text":"Menos ","color":"white","bold":false},{"selector":"@s","color":"white","bold":false}]
 
-title @p subtitle ["",{"text":"Menos você","bold":false}]
+title @s subtitle {"text":"Menos você","color":"white","bold":false}
 
-title @a title ["",{"text":"Todos bebem","color":"gold","bold":true}]
+title @a title {"text":"Todos bebem","color":"gold","bold":true}
 
-playsound minecraft:entity.player.levelup player @a
+execute as @a at @s run playsound minecraft:entity.player.levelup player @s ~ ~ ~ 1 1
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_gray","bold":false,"selector":"@p"},{"color":"dark_gray","bold":false,"text":" foi o primeiro a achar o bioma de cogumelo, algo extremamente útil para todos, portanto todos devem dar um gole de suas bebidas, menos "},{"color":"dark_gray","bold":false,"selector":"@p"},{"color":"dark_gray","bold":false,"text":"!"}]
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"dark_gray","bold":false},{"text":" foi o primeiro a achar o bioma de cogumelos, algo extremamente útil para todos, portanto todos devem dar um gole de suas bebidas, menos ","color":"dark_gray","bold":false},{"selector":"@s","color":"dark_gray","bold":false},{"text":"!","color":"dark_gray","bold":false}]
 
-scoreboard players set $global full_dima 0
+scoreboard players set $global cogu 0

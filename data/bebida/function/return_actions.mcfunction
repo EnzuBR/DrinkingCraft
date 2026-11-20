@@ -1,11 +1,11 @@
-title @a times 5t 20t 5t
+title @s times 10t 60t 20t
 
-title @p subtitle ["",{"text":"Para dar um shot","bold":false}]
+title @s subtitle {"text":"Para dar um shot","color":"white","bold":false}
 
-title @p title ["",{"text":"Escolha alguém","color":"gold","bold":true}]
+title @s title {"text":"Escolha alguém","color":"gold","bold":true}
 
-playsound minecraft:entity.player.levelup player @a
+playsound minecraft:entity.wither.ambient player @s ~ ~ ~ 1 1
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_red","bold":false,"selector":"@p"},{"color":"dark_red","bold":false,"text":" foi o primeiro a matar um Ghast rebatendo sua bola de fogo e agora pode escolher alguem para dar um shot!"}]
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"dark_red","bold":false},{"text":" foi o primeiro a matar um Ghast rebatendo sua bola de fogo e agora pode escolher alguém para dar um shot!","color":"dark_red","bold":false}]
 
 scoreboard players set $global return 0

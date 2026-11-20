@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "killed_passive": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "#bebida:passivos"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed_passive"
+    ]
+  ],
+  "rewards": {
+    "function": "bebida:passivos"
+  },
+  "sends_telemetry_event": false
+}

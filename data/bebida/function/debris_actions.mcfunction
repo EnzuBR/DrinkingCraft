@@ -1,11 +1,11 @@
-title @a times 5t 20t 5t
+title @s times 10t 60t 20t
 
-title @p subtitle ["",{"text":"Escolha alguém","bold":false},{"selector":"@p"}]
+title @s subtitle {"text":"Para dar um shot","color":"white","bold":false}
 
-title @p title ["",{"text":"Para dar shot","color":"gold","bold":true}]
+title @s title {"text":"Escolha alguém","color":"gold","bold":true}
 
-playsound minecraft:entity.wither.ambient player @p
+playsound minecraft:entity.wither.ambient player @s ~ ~ ~ 1 1
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_red","bold":false,"selector":"@p"},{"color":"dark_red","bold":false,"text":" conseguiu o primeiro Ancient Debirs e agora pode escolher alguém para dar um shot"}]
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"dark_red","bold":false},{"text":" encontrou o primeiro Ancient Debris e agora pode escolher alguém para dar um shot!","color":"dark_red","bold":false}]
 
 scoreboard players set $global debris 0

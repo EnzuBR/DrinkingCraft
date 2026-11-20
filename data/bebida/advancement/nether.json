@@ -1,20 +1,19 @@
 {
-    "criteria": {
-      "entered_nether": {
-        "trigger": "minecraft:changed_dimension",
-        "conditions": {
-          "to": "minecraft:the_nether"
-        }
+  "criteria": {
+    "entered_nether": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "minecraft:the_nether"
       }
-    },
-    "requirements": [
-      [
-        "entered_nether"
-      ]
-    ],
-    "rewards": {
-      "function": "bebida:nether"
-    },
-    "sends_telemetry_event": false
-  }
-  
+    }
+  },
+  "requirements": [
+    [
+      "entered_nether"
+    ]
+  ],
+  "rewards": {
+    "function": "bebida:nether"
+  },
+  "sends_telemetry_event": false
+}

@@ -1,9 +1,11 @@
-title @a times 5t 20t 5t
+title @a times 10t 60t 20t
 
-title @a title ["",{"text":"Todos bebem","color":"gold","bold":true}]
+title @a subtitle {"text":""}
 
-playsound minecraft:entity.player.levelup player @a
+title @a title {"text":"Todos bebem","color":"gold","bold":true}
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_red","bold":false,"selector":"@p"},{"color":"dark_red","bold":false,"text":" encontrou a primeira fortaleza do nether e agora todos devem beber para comemorar!"}]
+execute as @a at @s run playsound minecraft:entity.player.levelup player @s ~ ~ ~ 1 1
+
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"dark_red","bold":false},{"text":" encontrou a primeira Fortaleza do Nether, e agora todos devem beber para comemorar!","color":"dark_red","bold":false}]
 
 scoreboard players set $global fortaleza 0

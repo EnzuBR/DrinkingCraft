@@ -1,9 +1,11 @@
-title @a times 5t 20t 5t
+title @a times 10t 60t 20t
 
-title @a title ["",{"text":"Todos dão shot","color":"gold","bold":true}]
+title @a subtitle {"text":""}
 
-playsound minecraft:entity.wither.ambient player @a
+title @a title {"text":"Todos dão um shot","color":"gold","bold":true}
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"dark_purple","bold":false,"selector":"@p"},{"color":"dark_purple","bold":false,"text":" matou o Ender Dragon, hora do shot geral de comemoração!"}]
+execute as @a at @s run playsound minecraft:entity.wither.ambient player @s ~ ~ ~ 1 1
+
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"dark_purple","bold":false},{"text":" matou o Ender Dragon, hora do shot geral de comemoração!","color":"dark_purple","bold":false}]
 
 scoreboard players set $global ender_dragon 0

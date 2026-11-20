@@ -1,13 +1,13 @@
-title @a times 5t 20t 5t
+title @a times 10t 60t 20t
 
-title @a subtitle ["",{"text":"Menos ","bold":false},{"selector":"@p"}]
+title @a subtitle [{"text":"Menos ","color":"white","bold":false},{"selector":"@s","color":"white","bold":false}]
 
-title @p subtitle ["",{"text":"Menos você","bold":false}]
+title @s subtitle {"text":"Menos você","color":"white","bold":false}
 
-title @a title ["",{"text":"Todos bebem","color":"gold","bold":true}]
+title @a title {"text":"Todos bebem","color":"gold","bold":true}
 
-playsound minecraft:entity.player.levelup player @a
+execute as @a at @s run playsound minecraft:entity.player.levelup player @s ~ ~ ~ 1 1
 
-tellraw @a ["",{"color":"gold","bold":true,"text":"<DrinkingCraft> "},{"color":"aqua","bold":false,"selector":"@p"},{"color":"aqua","bold":false,"text":" conseguiu um Full Dima, todos devem dar um gole de suas bebidas, menos "},{"color":"aqua","bold":false,"selector":"@p"},{"color":"aqua","bold":false,"text":"!"}]
+tellraw @a [{"text":"<DrinkingCraft> ","color":"gold","bold":true},{"selector":"@s","color":"aqua","bold":false},{"text":" foi o primeiro a conseguir Full Dima, todos devem dar um gole de suas bebidas, menos ","color":"aqua","bold":false},{"selector":"@s","color":"aqua","bold":false},{"text":"!","color":"aqua","bold":false}]
 
 scoreboard players set $global full_dima 0
