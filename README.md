@@ -4,7 +4,7 @@ Un datapack que convierte Minecraft en un juego de bebida. Cada mineral que pica
 
 ![Ejemplo de cómo aparece el mensaje en pantalla](https://cdn.modrinth.com/data/cached_images/b196f8e4fc15134906590f1bddff9f377c42d804_0.webp)
 
-![Ejemplo picando diamante](https://cdn.modrinth.com/data/cached_images/2a8f2bdba248ae4a32b4215f01fc6aec5bdf7fe3.gif)
+![Montaje mostrando eventos de DrinkingCraft](https://raw.githubusercontent.com/EnzuBR/DrinkingCraft/ES/media/demo.gif)
 
 ## Cómo funciona
 
@@ -66,4 +66,22 @@ Ejecuta `/function bebida:uninstall` antes de quitar el datapack para limpiar to
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I0149EW0)
 
 ## Otros idiomas
+[![USA](https://cdn.modrinth.com/data/cached_images/2bc64824a9d35794d3f982b385d613c8b5b20f13.png)](https://modrinth.com/datapack/drinkingcraft-eng) [![BR](https://cdn.modrinth.com/data/cached_images/8f056b9e447c97c2e6597c6c3e6f150b037481db.png)](https://modrinth.com/datapack/drinkingcraft) [![ES](https://cdn.modrinth.com/data/cached_images/0aa1fd02584167ede13fb3bb74711064e5ffdde5.png)](https://modrinth.com/project/drinkingcraft-es)
+
+---
+
+EN:
+# DrinkingCraft
+
+DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you, or the whole server, reaching for a drink. Built for Java Edition 26.3 (Wilderness Bound), pack format `121.0`. Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
+
+## How it works
+
+Every event fires the same way: a title flashes on screen, a sound plays, and a chat message tells the server what happened and who's drinking. Some events always trigger, others roll the dice, and a few let you pick your victim.
+
+## Uninstalling
+
+Run `/function bebida:uninstall` before removing the datapack, it cleans up every scoreboard, tag, and advancement DrinkingCraft added, so nothing lingers behind.
+
+## Other languages
 [![USA](https://cdn.modrinth.com/data/cached_images/2bc64824a9d35794d3f982b385d613c8b5b20f13.png)](https://modrinth.com/datapack/drinkingcraft-eng) [![BR](https://cdn.modrinth.com/data/cached_images/8f056b9e447c97c2e6597c6c3e6f150b037481db.png)](https://modrinth.com/datapack/drinkingcraft) [![ES](https://cdn.modrinth.com/data/cached_images/0aa1fd02584167ede13fb3bb74711064e5ffdde5.png)](https://modrinth.com/project/drinkingcraft-es)
