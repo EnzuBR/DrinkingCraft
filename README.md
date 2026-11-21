@@ -4,7 +4,7 @@ DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you
 
 ![Example of how the message appears on screen](https://cdn.modrinth.com/data/cached_images/b196f8e4fc15134906590f1bddff9f377c42d804_0.webp)
 
-![Example of breaking diamond](https://cdn.modrinth.com/data/cached_images/2a8f2bdba248ae4a32b4215f01fc6aec5bdf7fe3.gif)
+![Gameplay montage showing DrinkingCraft events](https://raw.githubusercontent.com/EnzuBR/DrinkingCraft/ENG/media/demo.gif)
 
 ## How it works
 
