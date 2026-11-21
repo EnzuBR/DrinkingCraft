@@ -2,7 +2,7 @@
 
 Un datapack que convierte Minecraft en un juego de bebida. Cada mineral que picas, jefe que derrotas o hito que alcanzas puede hacer que tú, o todo el servidor, tengan que beber o tomar un shot. Hecho para Minecraft Java Edition 26.3 (Wilderness Bound), pack format `121.0`. Inspirado en el antiguo "Drunkcraft", recreado desde cero para estar actualizado, ser confiable y estar en español. Hecho por EnzuBR.
 
-![Ejemplo de cómo aparece el mensaje en pantalla](https://cdn.modrinth.com/data/cached_images/b196f8e4fc15134906590f1bddff9f377c42d804_0.webp)
+![Ejemplo de cómo aparece el mensaje en pantalla](https://cdn.modrinth.com/data/cached_images/7684b7006b816873d0f73e328ab49da0b437e8f9_0.webp)
 
 ![Montaje mostrando eventos de DrinkingCraft](https://raw.githubusercontent.com/EnzuBR/DrinkingCraft/ES/media/demo.gif)
 
