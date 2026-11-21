@@ -54,8 +54,13 @@ export function createRunner({ filter = null } = {}) {
 
       for (const t of matchingTests) {
         const t0 = Date.now();
+        const logCursor = ctx.server ? ctx.server.getLogCursor() : 0;
         try {
           await t.fn(ctx);
+          const dpErrors = ctx.server ? ctx.server.getDatapackErrors(logCursor) : [];
+          if (dpErrors.length > 0) {
+            throw new Error(`Server logged datapack error(s) during test:\n${dpErrors.join('\n')}`);
+          }
           const ms = Date.now() - t0;
           passed++;
           console.log(`  ${ANSI.green}PASS${ANSI.reset} ${t.name} ${ANSI.dim}(${ms}ms)${ANSI.reset}`);
@@ -67,6 +72,21 @@ export function createRunner({ filter = null } = {}) {
           if (err?.stack) {
             const stackLines = String(err.stack).split('\n').slice(1, 6).join('\n');
             if (stackLines) console.error(`${ANSI.dim}${stackLines}${ANSI.reset}`);
+          }
+          if (ctx.bots?.alpha?.recorder && typeof ctx.bots.alpha.recorder.formatSnapshot === 'function') {
+            console.error(`${ANSI.dim}[diag:${ctx.bots.alpha.username}]\n${ctx.bots.alpha.recorder.formatSnapshot()}${ANSI.reset}`);
+          }
+          if (ctx.bots?.beta?.recorder && typeof ctx.bots.beta.recorder.formatSnapshot === 'function') {
+            console.error(`${ANSI.dim}[diag:${ctx.bots.beta.username}]\n${ctx.bots.beta.recorder.formatSnapshot()}${ANSI.reset}`);
+          }
+          if (ctx.server) {
+            const newLogs = ctx.server.getLogsSince(logCursor);
+            const dpErrors = ctx.server.getDatapackErrors(logCursor);
+            if (dpErrors.length > 0) {
+              console.error(`${ANSI.red}[diag:server-dp-errors]\n${dpErrors.join('\n')}${ANSI.reset}`);
+            } else if (newLogs.length > 0) {
+              console.error(`${ANSI.dim}[diag:server-logs-tail]\n${newLogs.slice(-15).join('\n')}${ANSI.reset}`);
+            }
           }
           failures.push({ suite: s.name, test: t.name, error: err });
         }

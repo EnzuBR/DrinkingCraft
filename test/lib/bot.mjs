@@ -190,8 +190,34 @@ export class BotRecorder {
     }
   }
 
+  formatSnapshot() {
+    const fmtTitles = this.titles.map((t) => `"${t.text}" (sub: ${JSON.stringify(t.subtitleAtTime)})`);
+    const fmtSubs = this.subtitles.map((s) => JSON.stringify(s.text));
+    const fmtTimes = this.titleTimes.map((tt) => `${tt.fadeIn}/${tt.stay}/${tt.fadeOut}`);
+    const fmtSounds = this.sounds.map(
+      (s) => `${s.name} (vol=${s.volume}, pitch=${s.pitch}, pos=${s.x?.toFixed?.(1) ?? '?'}/${s.y?.toFixed?.(1) ?? '?'}/${s.z?.toFixed?.(1) ?? '?'})`,
+    );
+    const fmtChats = this.chats.map((c) => JSON.stringify(c.text));
+    return [
+      `  lastSubtitle: ${JSON.stringify(this.lastSubtitle)}`,
+      `  titles (${this.titles.length}): ${fmtTitles.length ? fmtTitles.join(', ') : '(none)'}`,
+      `  subtitles (${this.subtitles.length}): ${fmtSubs.length ? fmtSubs.join(', ') : '(none)'}`,
+      `  titleTimes (${this.titleTimes.length}): ${fmtTimes.length ? fmtTimes.join(', ') : '(none)'}`,
+      `  sounds (${this.sounds.length}): ${fmtSounds.length ? fmtSounds.join(', ') : '(none)'}`,
+      `  chats (${this.chats.length}): ${fmtChats.length ? fmtChats.join(', ') : '(none)'}`,
+    ].join('\n');
+  }
+
+  async _waitWithSnapshot(fn, description, timeoutMs) {
+    try {
+      return await waitForCondition(fn, description, timeoutMs);
+    } catch (err) {
+      throw new Error(`${err.message}\n[Recorder snapshot for ${this.bot.username}]:\n${this.formatSnapshot()}`);
+    }
+  }
+
   async waitForChat(matcher, timeoutMs = 4500) {
-    return waitForCondition(
+    return this._waitWithSnapshot(
       () => this.chats.find((c) => matchValue(c.text, matcher)),
       `chat matching ${matcher} on ${this.bot.username}`,
       timeoutMs,
@@ -199,7 +225,7 @@ export class BotRecorder {
   }
 
   async waitForTitle(matcher, timeoutMs = 4500) {
-    return waitForCondition(
+    return this._waitWithSnapshot(
       () => this.titles.find((t) => matchValue(t.text, matcher)),
       `title matching ${matcher} on ${this.bot.username}`,
       timeoutMs,
@@ -207,7 +233,7 @@ export class BotRecorder {
   }
 
   async waitForSubtitle(matcher, timeoutMs = 4500) {
-    return waitForCondition(
+    return this._waitWithSnapshot(
       () => this.subtitles.find((s) => matchValue(s.text, matcher)),
       `subtitle matching ${matcher} on ${this.bot.username}`,
       timeoutMs,
@@ -215,7 +241,7 @@ export class BotRecorder {
   }
 
   async waitForSound(matcher, timeoutMs = 4500) {
-    return waitForCondition(
+    return this._waitWithSnapshot(
       () => this.sounds.find((s) => matchValue(normalizeSoundName(s.name), matcher)),
       `sound matching ${matcher} on ${this.bot.username}`,
       timeoutMs,
@@ -226,19 +252,35 @@ export class BotRecorder {
     await sleep(waitMs);
     if (chatMatcher) {
       const hit = this.chats.find((c) => matchValue(c.text, chatMatcher));
-      assert.equal(hit, undefined, `Expected no chat matching ${chatMatcher} on ${this.bot.username}, but got: "${hit?.text}"`);
+      assert.equal(
+        hit,
+        undefined,
+        `Expected no chat matching ${chatMatcher} on ${this.bot.username}, but got: "${hit?.text}"\n[Recorder snapshot for ${this.bot.username}]:\n${this.formatSnapshot()}`,
+      );
     }
     if (titleMatcher) {
       const hit = this.titles.find((t) => matchValue(t.text, titleMatcher));
-      assert.equal(hit, undefined, `Expected no title matching ${titleMatcher} on ${this.bot.username}, but got: "${hit?.text}"`);
+      assert.equal(
+        hit,
+        undefined,
+        `Expected no title matching ${titleMatcher} on ${this.bot.username}, but got: "${hit?.text}"\n[Recorder snapshot for ${this.bot.username}]:\n${this.formatSnapshot()}`,
+      );
     }
     if (subtitleMatcher) {
       const hit = this.subtitles.find((s) => matchValue(s.text, subtitleMatcher));
-      assert.equal(hit, undefined, `Expected no subtitle matching ${subtitleMatcher} on ${this.bot.username}, but got: "${hit?.text}"`);
+      assert.equal(
+        hit,
+        undefined,
+        `Expected no subtitle matching ${subtitleMatcher} on ${this.bot.username}, but got: "${hit?.text}"\n[Recorder snapshot for ${this.bot.username}]:\n${this.formatSnapshot()}`,
+      );
     }
     if (soundMatcher) {
       const hit = this.sounds.find((s) => matchValue(normalizeSoundName(s.name), soundMatcher));
-      assert.equal(hit, undefined, `Expected no sound matching ${soundMatcher} on ${this.bot.username}, but got: "${hit?.name}"`);
+      assert.equal(
+        hit,
+        undefined,
+        `Expected no sound matching ${soundMatcher} on ${this.bot.username}, but got: "${hit?.name}"\n[Recorder snapshot for ${this.bot.username}]:\n${this.formatSnapshot()}`,
+      );
     }
   }
 }
@@ -471,6 +513,20 @@ export function startFallFlying(bot) {
 
 export function clearRconFeedback(output) {
   return String(output || '').trim();
+}
+
+export async function sprintTicks(server, ticks, timeoutMs = 30000) {
+  await server.cmd(`tick sprint ${ticks}`);
+  await waitForCondition(
+    async () => {
+      const out = await server.cmd('tick query');
+      return !/sprint/i.test(out);
+    },
+    `tick sprint ${ticks} to finish`,
+    timeoutMs,
+    100,
+  );
+  await sleep(250);
 }
 
 export async function ensureBotsConnected(ctx, { host, port, version, alphaName, betaName }) {

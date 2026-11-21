@@ -22,7 +22,7 @@ test/
 └── suites/
     ├── 01-load.mjs              # Checagens estáticas + boot 26.3 + datapack enabled + 30 objetivos
     ├── 02-first-join-reload.mjs # first_join, reconexão, isolamento @s/@a e tag init no reload/enable
-    ├── 03-multiplayer.mjs       # "Except you" vs "Except <player>", sticky subtitle, playsound a 140+ blocos
+    ├── 03-multiplayer.mjs       # "Menos tú" vs "Menos <player>", sticky subtitle, playsound a 140+ blocos
     ├── 04-global-locks.mjs      # Travas $global nos 14 marcos únicos (1º jogador vs 2º jogador)
     ├── 05-mining.mjs            # 13 variantes de blocos, reset de score, Silk Touch, exceção obsidian e RNG
     ├── 06-continuous.mjs        # morte + sem_morrer, quebrou (item + Elytra), crafting (1º vs 33%), totem, passivos
@@ -85,15 +85,17 @@ Variáveis de ambiente opcionais:
 
 ## 3. Cobertura das Suítes Automatizadas
 
+Cada teste verifica automaticamente ausências de erros de datapack nos logs do Paper e, em caso de falha ou timeout, imprime um snapshot completo do `BotRecorder` (`titles`, `subtitles`, `titleTimes`, `sounds` com volume/pitch/coordenadas e `chats`) junto com o tail relevante dos logs do servidor.
+
 | Suíte | O que valida na prática |
 | :--- | :--- |
-| `01-load` | Valida `pack.mcmeta` (`[121, 0]` / `121`), sintaxe de todos os JSONs, ausência de `"condition":`, listas cruas em `player`/`entity`, `@p` e `playsound .* player @a`; checa paridade 1:1 `.load` <-> `advancements` <-> `uninstall`; verifica zero erros de datapack no boot do Paper 26.3, `file/DrinkingCraft` habilitado e todos os 30 objetivos criados. |
-| `02-first-join-reload` | Valida disparo de `first_join` (`Dê um shot` + `wither.ambient` + tag `init`) na 1ª entrada, não-disparo ao reconectar, isolamento `@s`/`@a` quando o 2º jogador entra, e proteção de jogadores online via `tag @a[tag=!init] add init` ao reabilitar o datapack ou rodar `minecraft:reload`. |
-| `03-multiplayer` | Valida `"Menos você"` para `@s` vs `"Menos <player>"` para `@a` (`full_dima`), recebimento de som a 140+ blocos de distância, isolamento de título/som em evento apenas `@s` (`debris`), e limpeza explícita de subtítulo (`{"text":""}`) para evitar *sticky subtitle*. |
-| `04-global-locks` | Valida as travas `$global` nos 14 marcos únicos (incluindo `elytra` -> `elytra_first`, `full_netherite`, mudança de dimensão para Nether e End, abate real de Warden com espada e os demais marcos de estrutura/bioma/combate), garantindo que o 2º jogador nunca dispare de novo. |
-| `05-mining` | Valida mineração física real das 13 variantes de blocos (`diamond_ore`, `deepslate_*`, `nether_gold_ore`, `obsidian`, `crying_obsidian`, etc.), anti-exploit com Silk Touch (bloqueia os 5 minérios + reseta scores, mas mantém `obsidian` e `obsidian_cry` ativos) e disparo RNG de todas as 13 variantes sem Silk Touch. |
-| `06-continuous` | Valida `morte` (inclui reset de `sem_morrer` próximo de 12000 ticks), `sem_morrer >= 12000`, `quebrou` repetido 2x com picareta e 1x com Elytra (`durability <= 1`), `crafting` (1º jogador toma shot e nunca ambos os branches; demais têm 33% de beber e não re-disparam), `totem` repetido 2x e `passivos` (abate real de porco + auto-revogação + RNG). |
-| `07-uninstall` | Executa `bebida:uninstall` e confirma remoção integral dos 30 objetivos, das tags `init` e dos 18 advancements em ambos os bots sem deixar rastros. |
+| `01-load` | Valida `pack.mcmeta` (`[121, 0]` / `121`), entrypoint tags (`load`/`tick`), `.tick.mcfunction`, todos os 18 advancements, 9 predicados, `#bebida:passivos` (com `required: false`), todas as 28 funções `*_actions*.mcfunction` contra o Design System (sem sticky subtitle, ordem `"Menos tú"`, sons 4 níveis, cores do `tellraw`, paridade `$global`, ordem do `crafting` e auto-revogação), paridade 1:1 `.load` <-> `advancements` <-> `uninstall`, zero erros no boot do Paper 26.3 e registro ao vivo dos 30 objetivos, 9 predicados e `#bebida:passivos`. |
+| `02-first-join-reload` | Valida disparo de `first_join` (`Toma un shot` + `wither.ambient` vol=1/pitch=1 + `titleTimes` 10/60/20 + tag `init`) na 1ª entrada sem duplicar, não-disparo ao reconectar, isolamento `@s`/`@a` no 2º jogador, `first_join` simultâneo de 2 jogadores no mesmo tick limpando sticky subtitle, e proteção de jogadores online (`tag @a[tag=!init] add init`) + preservação de scores existentes ao reabilitar, rodar `minecraft:reload` ou `bebida:.load`. |
+| `03-multiplayer` | Valida `"Menos tú"` para `@s` vs `"Menos <player>"` para `@a` (`full_dima`), inversão de papéis (`BotBeta` como `@s` e `BotAlpha` como `@a`), reposicionamento real de coordenadas de som a 140+ blocos, isolamento estrito `@s` mesmo com os dois bots no mesmo bloco (`< 1` bloco), e matriz completa de prevenção de *sticky subtitle* (`"Para tomar un shot"`, `"Para beber"` e `"Menos <player>"` -> subtítulo vazio). |
+| `04-global-locks` | Valida os 14 marcos únicos e suas travas `$global`: rejeição de sets parciais/mistos (`full_dima`, `full_netherite`), não-disparo em teleporte na mesma dimensão (`nether`/`end`), morte ambiental/mob errado vs abate real de `warden`, `return` real por bola de fogo rebatida (rejeitando melee e flecha), bioma real via `/fillbiome` (`cogu`), abate real de `ender_dragon`, `elytra` -> `elytra_first`, isolamento entre travas e execução simultânea no mesmo tick (`trial`). |
+| `05-mining` | Valida mineração física real das 13 variantes de blocos e não-incremento em 6 blocos não-alvo (`stone`, `netherrack`, `copper_ore`, `lapis_ore`, `redstone_ore`, `diamond_block`), reset atômico simultâneo de múltiplas variantes + independência entre minérios, todos os edge cases de `silk_touch` (mão vazia, sem encantamento, Fortune, offhand, hotbar não-selecionado, diamond/netherite com Silk Touch), avaliação independente por jogador no mesmo tick e disparo RNG de todas as 13 variantes. |
+| `06-continuous` | Valida `morte` (isolamento entre jogadores, reset de `sem_morrer` próximo de 12000 ticks e morte simultânea `kill @a`), `sem_morrer` em 7 fases (contadores independentes por jogador, ciclos consecutivos, sem spam e disparo simultâneo), `quebrou` (borda de durabilidade `2 -> 1` sem disparo vs `1 -> 0` com picareta/pá, e Elytra em `12 -> 11` sem disparo vs `2 -> 1` disparando), `crafting` (1º jogador toma shot e nunca ambos os branches; 2º tem 33% de beber, não re-rola sem revogação e nunca toma shot), `totem` em offhand e mainhand sem disparar `morte` nem resetar `sem_morrer`, e `passivos` (ignorando morte ambiental e 20 zumbis, abatendo `pig`/`sheep`/`armadillo`, auto-revogando e disparando 5% RNG). |
+| `07-uninstall` | Executa `bebida:uninstall` e confirma remoção integral dos 30 objetivos, das tags `init` e dos 18 advancements preservando tags não relacionadas (`custom_admin_tag`), e valida reinstalação limpa (`datapack enable`) com todas as travas `$global` resetadas permitindo novo 1º jogador antes da limpeza final. |
 
 ---
 
@@ -106,7 +108,7 @@ Sempre que adicionar ou modificar qualquer mecânica no datapack, verifique os i
 - [ ] **Objetivo `$global`**: adicionado em `.load.mcfunction`, sem colidir com nenhum objetivo existente, e usado **exatamente com o mesmo nome** em `<evento>.mcfunction` e `scoreboard players set $global <obj> 0` em `<evento>_actions.mcfunction`.
 - [ ] **Paridade `uninstall.mcfunction`**: adicionados `advancement revoke @a only bebida:<evento>` e `scoreboard objectives remove <obj>`.
 - [ ] **Trava do 2º jogador**: confirmar na suíte `04-global-locks` que o 1º jogador dispara e o 2º jogador não dispara nem recebe título/som/chat.
-- [ ] **Idioma da branch**: confirmar que textos de UI (`title`, `subtitle`, `tellraw`) estão em português BR na branch `main` (ou inglês na `ENG`).
+- [ ] **Idioma da branch**: confirmar que textos de UI (`title`, `subtitle`, `tellraw`) estão em inglês na branch `ENG` (ou português BR na `main`).
 
 ### B. Novo Evento de Mineração / Tick / RNG
 - [ ] **Variantes completas**: todas as variantes do bloco existem como objetivos separados em `.load.mcfunction` e `uninstall.mcfunction` (normal, `deepslate_*`, variantes de Nether/crying se houver).
@@ -122,7 +124,7 @@ Sempre que adicionar ou modificar qualquer mecânica no datapack, verifique os i
 
 ### D. Alterações de Apresentação (`*_actions.mcfunction`) e `.load`/`.tick`
 - [ ] **Sem sticky subtitle**: eventos sem subtítulo **precisam** enviar `title <@s|@a> subtitle {"text":""}` antes de `title ... title`.
-- [ ] **Ordem "Menos você"**: `title @a subtitle ["Menos ", @s]` **sempre antes** de `title @s subtitle {"text":"Menos você"}` e ambos antes de `title @a title ...`.
+- [ ] **Ordem "Menos tú"**: `title @a subtitle ["Menos ", @s]` **sempre antes** de `title @s subtitle {"text":"Menos tú"}` e ambos antes de `title @a title ...`.
 - [ ] **Som à distância**: eventos coletivos usam `execute as @a at @s run playsound <som> player @s ~ ~ ~ 1 1` (nunca `playsound ... player @a`).
 - [ ] **Hierarquia sonora correta**: `experience_orb.pickup` (beber/escolher beber), `player.levelup` (todos bebem), `wither.ambient` (qualquer shot), `block.anvil.place` (morte).
 
@@ -130,7 +132,7 @@ Sempre que adicionar ou modificar qualquer mecânica no datapack, verifique os i
 
 ## 5. Catálogo de Edge Cases Críticos para Verificar
 
-1. **Sticky Subtitle no cliente Minecraft**: o cliente mantém o último subtítulo exibido se um novo `title` não enviar `subtitle {"text":""}` antes. Sempre testar um evento sem subtítulo logo após um evento com subtítulo (`"Menos você"`, `"Menos BotAlpha"` ou `"Para dar um shot"`).
+1. **Sticky Subtitle no cliente Minecraft**: o cliente mantém o último subtítulo exibido se um novo `title` não enviar `subtitle {"text":""}` antes. Sempre testar um evento sem subtítulo logo após um evento com subtítulo (`"Menos tú"`, `"Menos BotAlpha"` ou `"Para tomar un shot"`).
 2. **Copy-paste errado de `$global`**: copiar `cogu_actions.mcfunction` e esquecer de trocar `scoreboard players set $global <obj> 0` faz o marco disparar infinitamente ou travar outro marco. Sempre validar o objetivo exato após o disparo.
 3. **Ordem de execução em `crafting.mcfunction`**: `execute if score $global crafting = $global crafting ...` deve rodar **antes** de `execute unless score $global crafting = $global crafting ...`; se inverter, o 1º jogador seta `$global crafting = 0` e dispara os dois eventos no mesmo tick.
 4. **Alcance do `playsound` em multiplayer**: `playsound ... player @a` sem `at @s` falha silenciosamente para jogadores além de ~16 blocos. Sempre testar com um jogador a 140+ blocos de distância.
