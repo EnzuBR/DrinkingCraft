@@ -1,6 +1,6 @@
 # DrinkingCraft
 
-DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you, or the whole server, reaching for a drink. Built for Java Edition 26.3 (Wilderness Bound), pack format `121.0`. Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
+A mod and datapack that turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you, or the whole server, reaching for a drink. Built for Java Edition 26.3 (Wilderness Bound). Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
 
 ![Example of how the message appears on screen](https://cdn.modrinth.com/data/cached_images/b196f8e4fc15134906590f1bddff9f377c42d804_0.webp)
 
