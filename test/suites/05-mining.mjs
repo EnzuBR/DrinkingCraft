@@ -6,6 +6,7 @@ import {
   BOT_ALPHA,
   BOT_BETA,
   MINING_ORBITS,
+  EXPECTED_MINING_OBJECTIVES,
   SERVER_HOST,
   MC_PORT,
   BOT_VERSION,
@@ -154,6 +155,143 @@ export function registerSuite05(suite, test) {
           assert.equal(after.hasScore, false, `Scoreboard ${variant.obj} must be reset after trigger`);
         }
       }
+    });
+
+    test('Non-target blocks do NOT increment or trigger any mining objective', async ({ server, bots }) => {
+      const { alpha, beta } = bots;
+      await preparePlayer(server.rcon, alpha, { ...ARENA_POS, gamemode: 'survival' });
+      await preparePlayer(server.rcon, beta, { ...DISTANT_POS, gamemode: 'survival' });
+      await equipHotbar0(server.rcon, alpha, 'minecraft:netherite_pickaxe[minecraft:enchantments={"minecraft:efficiency":5}]');
+      await server.cmd(`effect give ${BOT_ALPHA} minecraft:haste 600 2 true`);
+
+      alpha.recorder.clear();
+      beta.recorder.clear();
+
+      const nonTargets = [
+        'minecraft:stone',
+        'minecraft:netherrack',
+        'minecraft:copper_ore',
+        'minecraft:lapis_ore',
+        'minecraft:redstone_ore',
+        'minecraft:diamond_block',
+      ];
+      for (const block of nonTargets) {
+        await placeAndDig(server.rcon, alpha, DIG_BLOCK_POS, block);
+      }
+
+      for (const obj of EXPECTED_MINING_OBJECTIVES) {
+        const sc = await getScore(server.rcon, BOT_ALPHA, obj);
+        assert.equal(sc.hasScore, false, `Mining non-target blocks must leave ${obj} unset, got ${sc.value}`);
+      }
+      await alpha.recorder.expectNone(
+        {
+          chatMatcher: /<DrinkingCraft>/,
+          titleMatcher: /.*/,
+          soundMatcher: /entity\.(wither\.ambient|experience_orb\.pickup|player\.levelup)|block\.anvil\.place/,
+        },
+        350,
+      );
+      await beta.recorder.expectNone({ chatMatcher: /<DrinkingCraft>/, titleMatcher: /.*/ }, 150);
+    });
+
+    test('Multi-variant simultaneous score atomic reset & cross-ore independence', async ({ server, bots }) => {
+      const { alpha } = bots;
+      await preparePlayer(server.rcon, alpha, { ...ARENA_POS, gamemode: 'survival' });
+
+      for (const orbit of MINING_ORBITS) {
+        for (let i = 0; i < orbit.variants.length; i++) {
+          await server.cmd(`scoreboard players set ${BOT_ALPHA} ${orbit.variants[i].obj} ${i + 2}`);
+        }
+        await server.cmd(`function bebida:${orbit.fnName}`);
+        for (const variant of orbit.variants) {
+          const after = await getScore(server.rcon, BOT_ALPHA, variant.obj);
+          assert.equal(after.hasScore, false, `${orbit.fnName} must atomically reset ${variant.obj} when multiple variants are set`);
+        }
+      }
+
+      // Cross-ore independence: diamante must not reset carvao
+      await server.cmd(`scoreboard players set ${BOT_ALPHA} diamante 1`);
+      await server.cmd(`scoreboard players set ${BOT_ALPHA} carvao 5`);
+      await server.cmd('function bebida:diamante');
+      assert.equal((await getScore(server.rcon, BOT_ALPHA, 'diamante')).hasScore, false, 'diamante must reset');
+      assert.equal((await getScore(server.rcon, BOT_ALPHA, 'carvao')).value, 5, 'diamante must NOT reset unrelated carvao score');
+      await server.cmd(`scoreboard players reset ${BOT_ALPHA} carvao`);
+    });
+
+    test('bebida:silk_touch predicate evaluates mainhand strictly across slots and enchantments', async ({ server, bots }) => {
+      const { alpha } = bots;
+      await preparePlayer(server.rcon, alpha, { ...ARENA_POS, gamemode: 'survival' });
+
+      const checkSilk = async () => {
+        const out = await server.cmd(`execute as ${BOT_ALPHA} if predicate bebida:silk_touch`);
+        return /Test passed/i.test(out);
+      };
+
+      // 1. Empty mainhand -> false
+      assert.equal(await checkSilk(), false, 'Empty mainhand must fail silk_touch predicate');
+
+      // 2. Unenchanted diamond pickaxe in mainhand -> false
+      await equipHotbar0(server.rcon, alpha, 'minecraft:diamond_pickaxe');
+      assert.equal(await checkSilk(), false, 'Unenchanted pickaxe must fail silk_touch predicate');
+
+      // 3. Fortune III + Efficiency V + Unbreaking III in mainhand -> false
+      await equipHotbar0(server.rcon, alpha, 'minecraft:diamond_pickaxe[minecraft:enchantments={"minecraft:fortune":3,"minecraft:efficiency":5,"minecraft:unbreaking":3}]');
+      assert.equal(await checkSilk(), false, 'Fortune pickaxe must fail silk_touch predicate');
+
+      // 4. Silk Touch in offhand while holding Fortune in mainhand -> false
+      await server.cmd(`item replace entity ${BOT_ALPHA} weapon.offhand with minecraft:diamond_pickaxe[minecraft:enchantments={"minecraft:silk_touch":1}]`);
+      await sleep(100);
+      assert.equal(await checkSilk(), false, 'Silk Touch in offhand must NOT satisfy mainhand predicate');
+
+      // 5. Silk Touch in hotbar.1 while hotbar.0 (normal pickaxe) is selected -> false
+      await server.cmd(`item replace entity ${BOT_ALPHA} weapon.offhand with minecraft:air`);
+      await server.cmd(`item replace entity ${BOT_ALPHA} hotbar.1 with minecraft:diamond_pickaxe[minecraft:enchantments={"minecraft:silk_touch":1}]`);
+      await sleep(100);
+      assert.equal(await checkSilk(), false, 'Silk Touch in unselected hotbar.1 must NOT satisfy mainhand predicate');
+
+      // 6. Silk Touch diamond pickaxe in mainhand -> true
+      await equipHotbar0(server.rcon, alpha, 'minecraft:diamond_pickaxe[minecraft:enchantments={"minecraft:silk_touch":1}]');
+      assert.equal(await checkSilk(), true, 'Silk Touch diamond pickaxe in mainhand must pass');
+
+      // 7. Silk Touch + Efficiency + Unbreaking netherite pickaxe in mainhand -> true
+      await equipHotbar0(server.rcon, alpha, 'minecraft:netherite_pickaxe[minecraft:enchantments={"minecraft:silk_touch":1,"minecraft:efficiency":5,"minecraft:unbreaking":3}]');
+      assert.equal(await checkSilk(), true, 'Silk Touch netherite pickaxe with multiple enchants in mainhand must pass');
+    });
+
+    test('Per-player Silk Touch evaluation when two players mine in the same tick', async ({ server, bots }) => {
+      const { alpha, beta } = bots;
+      await preparePlayer(server.rcon, alpha, { ...ARENA_POS, gamemode: 'survival' });
+      await preparePlayer(server.rcon, beta, { ...DISTANT_POS, gamemode: 'survival' });
+
+      // BotAlpha holds Silk Touch; BotBeta holds normal Efficiency pickaxe
+      await equipHotbar0(server.rcon, alpha, 'minecraft:diamond_pickaxe[minecraft:enchantments={"minecraft:silk_touch":1}]');
+      await equipHotbar0(server.rcon, beta, 'minecraft:diamond_pickaxe[minecraft:enchantments={"minecraft:efficiency":5}]');
+
+      alpha.recorder.clear();
+      beta.recorder.clear();
+
+      let triggered = false;
+      for (let attempt = 0; attempt < 200; attempt++) {
+        await server.cmd(`scoreboard players set ${BOT_ALPHA} diamante 1`);
+        await server.cmd(`scoreboard players set ${BOT_BETA} diamante 1`);
+        await server.cmd('function bebida:diamante');
+        await sleep(20);
+
+        assert.equal((await getScore(server.rcon, BOT_ALPHA, 'diamante')).hasScore, false, 'BotAlpha diamante must reset');
+        assert.equal((await getScore(server.rcon, BOT_BETA, 'diamante')).hasScore, false, 'BotBeta diamante must reset');
+
+        if (beta.recorder.titles.length > 0 || alpha.recorder.titles.length > 0) {
+          triggered = true;
+          break;
+        }
+      }
+
+      assert.equal(triggered, true, 'BotBeta (no Silk Touch) must trigger diamante within 200 attempts');
+      const betaTitle = await beta.recorder.waitForTitle('Todos bebem');
+      assert.equal(betaTitle.subtitleAtTime, 'Menos você', `BotBeta (no Silk Touch) must be the trigger player, got "${betaTitle.subtitleAtTime}"`);
+      const alphaTitle = await alpha.recorder.waitForTitle('Todos bebem');
+      assert.equal(alphaTitle.subtitleAtTime, `Menos ${BOT_BETA}`, `BotAlpha (Silk Touch) must never trigger and must see "Menos ${BOT_BETA}", got "${alphaTitle.subtitleAtTime}"`);
+      await alpha.recorder.waitForChat(new RegExp(`${BOT_BETA} encontrou um belo diamante`));
     });
   });
 }

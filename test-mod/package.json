@@ -1,0 +1,14 @@
+{
+  "name": "drinkingcraft-mod-tests",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Automated headless integration test suite for Modrinth-packaged DrinkingCraft mod JARs on Fabric/NeoForge/Forge 26.3",
+  "scripts": {
+    "test": "node run-tests.mjs"
+  },
+  "dependencies": {
+    "mineflayer": "latest",
+    "prismarine-chat": "latest"
+  }
+}
