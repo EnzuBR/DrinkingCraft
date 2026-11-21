@@ -1,6 +1,6 @@
 # DrinkingCraft
 
-Un datapack que convierte Minecraft en un juego de bebida. Cada mineral que picas, jefe que derrotas o hito que alcanzas puede hacer que tú, o todo el servidor, tengan que beber o tomar un shot. Hecho para Minecraft Java Edition 26.3 (Wilderness Bound), pack format `121.0`. Inspirado en el antiguo "Drunkcraft", recreado desde cero para estar actualizado, ser confiable y estar en español. Hecho por EnzuBR.
+Un mod y datapack que convierte Minecraft en un juego de bebida. Cada mineral que picas, jefe que derrotas o hito que alcanzas puede hacer que tú, o todo el servidor, tengan que beber o tomar un shot. Hecho para Minecraft Java Edition 26.3 (Wilderness Bound). Inspirado en el antiguo "Drunkcraft", recreado desde cero para estar actualizado, ser confiable y estar en español. Hecho por EnzuBR.
 
 ![Ejemplo de cómo aparece el mensaje en pantalla](https://cdn.modrinth.com/data/cached_images/7684b7006b816873d0f73e328ab49da0b437e8f9_0.webp)
 
@@ -73,7 +73,7 @@ Ejecuta `/function bebida:uninstall` antes de quitar el datapack para limpiar to
 EN:
 # DrinkingCraft
 
-DrinkingCraft turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you, or the whole server, reaching for a drink. Built for Java Edition 26.3 (Wilderness Bound), pack format `121.0`. Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
+A mod and datapack that turns Minecraft into a drinking game. Every ore you mine, boss you kill, and milestone you reach can send you, or the whole server, reaching for a drink. Built for Java Edition 26.3 (Wilderness Bound). Inspired by the now-unavailable "Drunkcraft," rebuilt from scratch to be updated, reliable, and more fun. Made by EnzuBR.
 
 ## How it works
 
